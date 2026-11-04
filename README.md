@@ -42,6 +42,24 @@ What's new compared to the 2025 guide:
 * **Software engineering:** Git, testing, debugging
 * **Teamwork:** pull requests, code review, documentation
 
+## ⚠️ Use the right VS Code
+
+Your laptop may have **several** VS Codes: a plain one, and one for each
+WPILib year. They look the same, and Windows search, Spotlight, and the
+Dock often open the wrong one. Using the wrong one gives you **hundreds
+of build errors** in code that's fine.
+
+| Parts | Branch | Use | Windows: in File Explorer | Mac: in Finder (**Go → Go to Folder…**) |
+| --- | --- | --- | --- | --- |
+| 1 to 3 | `main` | **2026 WPILib VS Code** | `C:\Users\Public\wpilib\2026\vscode\Code.exe` | `~/wpilib/2026/vscode` → **VSCode FRC 2026** |
+| 4 to 7 | `2027` | **2027 WPILib VS Code** | `C:\Users\Public\wpilib\2027…\vscode\Code.exe` | `~/wpilib/2027/vscode` |
+
+Then **pin it** (Windows: right-click → **Pin to taskbar**; Mac:
+right-click the Dock icon → **Options** → **Keep in Dock**), and always
+start it from there. If VS Code ever offers to **import** or **update** a
+project, say **no**: you're in the wrong one. More in the
+[Build errors FAQ](docs/reference/BUILD_ERRORS.md#wrong-vs-code-or-wrong-year).
+
 ## Part 1: The basics
 
 Learn the basics on a RoboRIO test board. Parts 1 to 3 use the
