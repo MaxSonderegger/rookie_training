@@ -67,6 +67,23 @@ version starts with the year from [the table](#which-year-goes-with-what).
   **Options** → **Keep in Dock**.
   > **TODO (mentors):** check the app name in `~/wpilib/2027/vscode`.
 
+### "Unsupported class file major version 69"
+
+```
+BUG! exception in phase 'semantic analysis' in source unit 'BuildScript'
+Unsupported class file major version 69
+```
+
+with `wpilib\2027…\jdk` in the last line of the terminal, means
+exactly this: a **2026** project (branch `main`) is being built by
+**2027** WPILib VS Code. 2027 WPILib uses Java 25 (that's what "69"
+means), and the 2026 projects' Gradle can't run on it. Nothing is wrong
+with your code. Close VS Code and open the project in **2026** WPILib VS
+Code.
+
+(The opposite mix, a `2027` project in 2026 VS Code, fails too, with a
+different error.)
+
 ## Opened the folder instead of the workspace
 
 **Looks like:** everything from `lib` (`org.team100.lib…`) is underlined
