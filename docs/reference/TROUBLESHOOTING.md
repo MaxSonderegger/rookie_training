@@ -29,15 +29,11 @@
 **Build takes forever the first time**
 : Normal. Gradle downloads a lot the first time. Wait a few minutes.
 
-**Red squiggles everywhere, but the build works**
-: VS Code's Java helper is confused. `Ctrl+Shift+P` → **Java: Clean Java
-  Language Server Workspace**, and restart.
-
-**Can't find `org.team100.lib...`**
-: Your study doesn't include `lib` yet, or it can't find it. See
-  [`lib` not found?](../part1/07_STUDY.md#lib-not-found): most often the
-  study isn't in `all26/studies/`, or it was imported instead of
-  created.
+**Red squiggles everywhere, can't find `org.team100.lib...`, or
+hundreds of errors**
+: See the [Build errors FAQ](BUILD_ERRORS.md). Most often it's the
+  wrong year's VS Code, a project that was imported instead of created,
+  or a missing `lib` step.
 
 ## Deploying and running
 

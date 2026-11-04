@@ -138,16 +138,40 @@ should show `origin` pointing at **your** fork and `upstream` pointing at
 
 ## First build
 
-1. Start **2026 WPILib VS Code** (from the desktop icon, not Windows search).
-1. **File → Open Folder…** and open `all26/studies/discus`, a good first
-   project.
-   * Open a single project folder, not the whole `all26` folder. Each
-     project builds on its own.
-   * Bigger projects like `comp` come with a `.code-workspace` file that
-     opens `lib` alongside. When VS Code offers to **Open Workspace**,
-     say yes.
+1. **Start the right VS Code: 2026 WPILib VS Code.** There may be
+   several VS Codes on your laptop: a plain one, and one for each WPILib
+   year. Only the **2026 WPILib** one builds Parts 1 to 3.
+   * **Windows:** the **2026 WPILib VS Code** icon on the desktop. Not
+     Windows search, which may find another one.
+   * **Mac:** not Spotlight, and not the Dock, which may find another one.
+     In Finder, **Go → Go to Folder…** (`Shift+Cmd+G`), type
+     `~/wpilib/2026/vscode`, and open **VSCode FRC 2026**. Once it's
+     running, right-click its Dock icon → **Options** → **Keep in Dock**.
+
+   **Check:** there's a red **W** icon in the top right, and in the
+   **Extensions** pane, the **WPILib** extension's version starts with
+   **2026**. No W, or a version starting with 2025 or 2027? Close it and
+   start the right one.
+1. **Open discus as a workspace:** **File → Open Workspace from File…**,
+   go to `all26/studies/discus`, and open **`discus.code-workspace`**.
+   It opens the study **and** `lib`, which the study needs. (Every
+   project in `all26` that uses `lib` has a `.code-workspace` file; always
+   open that.)
+   * If you opened the folder instead and VS Code offers to **Open
+     Workspace**, say yes.
 
      <img src="../img/openworkspace.png" width=350/>
+
+   > [!WARNING]
+   > **‼️ VS Code asks to "import" or "update" the project to a new
+   > year? Say NO, and close the window.** It means you're in the wrong
+   > year's VS Code. Importing makes a **copy** of the project somewhere
+   > else, with a new `build.gradle` that can't find `lib`, and you'll get
+   > hundreds of errors. Go back to step 1 and start 2026 WPILib VS Code.
+   >
+   > Already imported? Delete the copy, and open the original
+   > `all26/studies/discus/discus.code-workspace` in the right VS Code.
+   > More in the [Build errors FAQ](../reference/BUILD_ERRORS.md#the-project-was-imported).
 1. Turn on **File → Auto Save**.
 1. Wait. The first build downloads a lot and can take many minutes.
 1. Click the WPILib icon (the red "W" in the top right) and choose
@@ -157,8 +181,12 @@ should show `origin` pointing at **your** fork and `upstream` pointing at
 
 **Checkpoint:** the terminal at the bottom ends with `BUILD SUCCESSFUL`.
 
-If it fails, look in [Troubleshooting](../reference/TROUBLESHOOTING.md), ask for
-help, and add what you learned to that page.
+> [!IMPORTANT]
+> **‼️ Not compiling? Seeing errors, or `lib` underlined in red?** Go
+> through the [Build errors FAQ](../reference/BUILD_ERRORS.md), in order.
+> It's almost always the wrong VS Code, an import, or opening the folder
+> instead of the workspace. For deploy and robot problems, see
+> [Troubleshooting](../reference/TROUBLESHOOTING.md).
 
 ### Advanced: run commands from a terminal
 

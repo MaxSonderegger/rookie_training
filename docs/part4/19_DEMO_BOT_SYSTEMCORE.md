@@ -15,7 +15,8 @@ Do the same for your shooter study: new branch from `2027`, new imports,
 `CTREStartup` if you use any CTRE motors, and a `CanBusId` for every
 motor.
 
-**Checkpoint:** it builds on `2027`.
+**Checkpoint:** it builds on `2027`. Errors? See the
+[Build errors FAQ](../reference/BUILD_ERRORS.md).
 
 > **Check yourself:** the SystemCore has five CAN ports. Which one is
 > each of the demo bot's motors plugged into? How do you find out

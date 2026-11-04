@@ -79,6 +79,8 @@ see them**. Use the **REV Hardware Client** instead.
 **Goal:** a new study, with `lib` included, that creates **both
 shooter drum motors** and the **indexer motor**. Low current limits.
 
+**Build errors?** See the [Build errors FAQ](../reference/BUILD_ERRORS.md).
+
 **Checkpoint:** it builds, deploys, and prints your "motors created"
 messages.
 

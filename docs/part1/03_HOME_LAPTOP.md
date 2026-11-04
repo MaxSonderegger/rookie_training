@@ -102,8 +102,9 @@ The rules are the same as in the shop (see [Using AI here](../../README.md#using
 
 On your own laptop, at home:
 
-1. Open `studies/discus` in 2026 WPILib VS Code and get
-   `BUILD SUCCESSFUL`.
+1. Open `studies/discus` in 2026 WPILib VS Code
+   ([how](01_SETUP.md#first-build)) and get `BUILD SUCCESSFUL`. Errors?
+   See the [Build errors FAQ](../reference/BUILD_ERRORS.md).
 1. Run it in the [simulator](09_SIMULATOR.md).
 
    > 📷 **TODO screenshot:** `docs/img/home_sim_running.png`.

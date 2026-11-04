@@ -13,7 +13,8 @@ Do this on a branch in your fork ([how](02_FORK_WORKFLOW.md)), e.g.
 
 ## Create the study
 
-Use the WPILib project wizard, in **2026 WPILib VS Code**:
+Use the WPILib project wizard, in **2026 WPILib VS Code**
+([which one?](01_SETUP.md#first-build)):
 
 1. `Ctrl+Shift+P` → **WPILib: Create a new project**.
 1. Choose **Template** → **Java** → **Timed Robot**.
@@ -130,43 +131,13 @@ If you get stuck, compare your study with
 [`test/single_roller`](https://github.com/Team100/all26/tree/main/test/single_roller), which is set up exactly
 this way.
 
-### `lib` not found?
+### Errors?
 
-If you see `package org.team100.lib... does not exist`, or everything
-from `lib` is underlined in red, check these, in order:
-
-1. **Is your study in `all26/studies/`?** The `../../lib` path only
-   works from exactly two folders below `all26`. A study saved anywhere
-   else (your Desktop, Documents, a folder WPILib picked) can't find
-   `lib`. Move it into `all26/studies/`.
-1. **Did you use "WPILib: Import a WPILib project"?** Don't, for any
-   study in `all26`, yours or the team's. Import makes a **copy** in a
-   new folder and gives it a **new `build.gradle`**, so both the
-   `sourceSets` lines and the `../../lib` path are lost. To use an
-   existing study (like `studies/discus`), just open its
-   `.code-workspace` file, where it already is. To start your own, use
-   **Create a new project**, as above.
-1. **Is it the right WPILib year?** Look at the top of `build.gradle`.
-   On `main` (Parts 1 to 3) it must say
-   `id "edu.wpi.first.GradleRIO" version "2026.2.1"`. If it says
-   `org.wpilib.GradleRIO` and `2027`, it was made or imported with 2027
-   WPILib, which can't build `lib` on `main` (2027 renamed the
-   `edu.wpi.first` packages to `org.wpilib`). Make the study again with
-   **2026** WPILib VS Code. (From Part 4 on, it's the other way around:
-   branch `2027` needs 2027 WPILib.)
-1. **Is the `sourceSets` block in your `build.gradle`?**
-   ([step 2](#2-tell-gradle-about-lib))
-1. **Did you open the `.code-workspace` file?** If you opened just the
-   study folder, the build may work, but VS Code underlines all of
-   `lib` in red. **File → Open Workspace from File…** and pick the
-   `.code-workspace` file in your study.
-1. **Still red, but the build says `BUILD SUCCESSFUL`?** VS Code's Java
-   helper got confused. `Ctrl+Shift+P` (`Cmd+Shift+P` on a Mac) →
-   **Java: Clean Java Language Server Workspace** → **Restart and
-   delete**.
-
-The **build** result is what counts: if WPILib → **Build Robot Code**
-says `BUILD SUCCESSFUL`, your `lib` setup is fine.
+> [!IMPORTANT]
+> **‼️ Not compiling? Seeing errors, or `lib` underlined in red?** Go
+> through the [Build errors FAQ](../reference/BUILD_ERRORS.md), in order.
+> It's almost always the wrong VS Code, an imported project, or a missing
+> `lib` step, not your code.
 
 ## Send a pull request
 

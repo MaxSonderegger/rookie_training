@@ -58,26 +58,11 @@ Step 3 of [Control a motor from code](../part1/08_MOTOR_CODE.md#step-3-create-th
 > ## ‼️ Not compiling? Seeing errors?
 >
 > Most Discus build problems come from **how the project was made**, not
-> from your code. Check these, in order:
->
-> 1. **Right year?** Part 2 is the RoboRIO: branch **`main`**, **2026
->    WPILib VS Code**, and `build.gradle` says
->    `id "edu.wpi.first.GradleRIO" version "2026.2.1"`. If it says
->    `org.wpilib.GradleRIO` and `2027`, the project was made or imported
->    with **2027** WPILib, and nothing in `lib` on `main` will compile
->    with it (2027 renamed the `edu.wpi.first` packages to
->    `org.wpilib`). Make the study again in 2026 WPILib VS Code.
-> 1. **Did you import it?** Don't use **WPILib: Import a WPILib
->    project**, on your study or on `studies/discus`. Import copies the
->    project to a new folder with a **new `build.gradle`**: the copy
->    loses the `sourceSets` lines and can't reach `lib`. Make a new
->    study with **Create a new project** instead.
-> 1. **Is `lib` added?** Your study needs all three steps of
->    [Include the `lib` directory](../part1/07_STUDY.md#include-the-lib-directory):
->    the workspace, the `sourceSets` block in `build.gradle`, and the
->    vendordeps.
-> 1. **Still stuck?** Go through
->    [`lib` not found?](../part1/07_STUDY.md#lib-not-found).
+> from your code: the wrong year's VS Code (Part 2 is **2026** WPILib, on
+> **`main`**), a project that was **imported** instead of created, or a
+> missing [`lib` step](../part1/07_STUDY.md#include-the-lib-directory).
+> Go through the [Build errors FAQ](../reference/BUILD_ERRORS.md), in
+> order.
 >
 > `studies/discus` itself is the team's own Discus code. Make your own
 > study; don't build on that one.

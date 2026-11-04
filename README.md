@@ -128,6 +128,7 @@ The competition robot runs on the new
 ## Whenever you need them
 
 * [RoboRIO → SystemCore cheat sheet](docs/part4/16_SYSTEMCORE.md#roborio--systemcore-cheat-sheet)
+* **[Build errors FAQ](docs/reference/BUILD_ERRORS.md)**: not compiling? Seeing errors? Start here
 * [Debugging](docs/reference/DEBUGGING.md): errors, prints, logs, the debugger
 * [Troubleshooting](docs/reference/TROUBLESHOOTING.md): Git, build, deploy, and robot problems
 * [Coding conventions](https://github.com/Team100/all26/blob/2027/lib/doc/getting_started/Conventions.md)

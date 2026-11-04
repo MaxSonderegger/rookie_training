@@ -71,9 +71,14 @@ From now on, do the [fork workflow](../part1/02_FORK_WORKFLOW.md) with **`2027`*
 wherever it says `main`: sync `2027`, branch from `2027`, and open PRs
 against `2027`.
 
-Open `studies/discus` in **2027 WPILib VS Code** and build it.
+Open `studies/discus/discus.code-workspace` in **2027 WPILib VS Code**
+(on a Mac, from `~/wpilib/2027/vscode`) and build it. If VS Code offers
+to import or update the project, say **no**: you're in the wrong VS
+Code, or on the wrong branch.
 
-**Checkpoint:** `BUILD SUCCESSFUL` on the `2027` branch.
+**Checkpoint:** `BUILD SUCCESSFUL` on the `2027` branch. Errors? See the
+[Build errors FAQ](../reference/BUILD_ERRORS.md); the year table is the
+first thing to check.
 
 ## 3. Deploy to a SystemCore
 

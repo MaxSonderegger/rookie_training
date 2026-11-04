@@ -195,7 +195,8 @@ computes `d2`.)
    * `trajectoryFns()` returns both, so the dashboard can draw them
 1. Register it in `Autons.java`, next to `AheadTwoMeters`.
 1. Build (WPILib → **Build Robot Code**). Fix errors until it's
-   `BUILD SUCCESSFUL`.
+   `BUILD SUCCESSFUL`. Errors in code you didn't touch? See the
+   [Build errors FAQ](../reference/BUILD_ERRORS.md).
 
    > 🖥️ **Advanced:** in a terminal, run `./gradlew build` in the `comp` folder ([how](../part1/01_SETUP.md#advanced-run-commands-from-a-terminal)).
 
