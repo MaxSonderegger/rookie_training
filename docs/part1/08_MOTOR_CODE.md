@@ -76,6 +76,19 @@ one sends logs to the dashboard.
 
 **Goal:** your `robotPeriodic()` makes those four calls.
 
+> [!WARNING]
+> **Don't skip this step.** It's easy to miss, because your code still
+> builds and deploys without it, and the motor still spins. But:
+>
+> * **Glass shows nothing.** Our motors don't send their logs by
+>   themselves. They sign up with `LogPoller`, and nothing is sent until
+>   `robotPeriodic()` calls `LogPoller.log()`, every cycle.
+> * **Sensor readings get stuck.** Without `Cache.refresh()`, the speed
+>   you read in Step 5 never changes.
+>
+> An **empty** `robotPeriodic()` (the one the WPILib template gives you)
+> is the #1 reason rookies see no logs in Glass.
+
 **Look in:** the `robotPeriodic()` of `test/single_roller`. Find the
 four lines that do this. (It has a few extra lines you don't need yet.)
 
@@ -91,7 +104,16 @@ Two of the class names are `Takt` and `Cache`.
 </details>
 
 <details>
-<summary>Hint 2: what's a cache?</summary>
+<summary>Hint 2: which one sends the logs?</summary>
+
+Open
+[`LogPoller`](https://github.com/Team100/all26/blob/main/lib/src/main/java/org/team100/lib/logging/LogPoller.java).
+It's tiny. What does `register` do? What does `log` do? Who calls
+`log`? (If nobody does, what reaches Glass?)
+</details>
+
+<details>
+<summary>Hint 3: what's a cache?</summary>
 
 Asking a motor for data is slow, so we **cache** each value: we read it
 once per cycle and reuse it. Then we throw the cache away every cycle,
@@ -222,6 +244,11 @@ returns and find a method for **velocity**. What units does it use?
 
 **Checkpoint:** you see the speed printed, and you can say how many
 **rotations per second** that is.
+
+> **Speed always 0, or stuck at one number?** Your `robotPeriodic()` is
+> probably missing a call. Go back to
+> [Step 2](#step-2-keep-the-library-ticking) and check all four are
+> there.
 
 > **Experiment:** comment out the `Cache` line from Step 2, deploy, and
 > watch the printed speed. What happens? Why? Then put it back.

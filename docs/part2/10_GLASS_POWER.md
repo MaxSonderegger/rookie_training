@@ -99,14 +99,40 @@ And the robot as a whole logs:
 
 ## Find your motor's values
 
+> [!IMPORTANT]
+> ## ‼️ Don't see any logs?
+>
+> **Go back and make sure you
+> [set up logging correctly](../part1/08_MOTOR_CODE.md#step-2-keep-the-library-ticking)
+> in your `robotPeriodic()`.** If it doesn't call `LogPoller.log()`
+> (and `Takt.update()`, `Cache.refresh()`, and
+> `CommandScheduler.getInstance().run()`) every cycle, **nothing** shows
+> up under `log`, no matter what you do in Glass. Your code still builds,
+> deploys, and spins the motor, so this is easy to miss.
+>
+> Then go down this list, in order:
+>
+> 1. **Is Glass connected?** The title bar says so; if not, see
+>    [above](#open-glass-and-connect).
+> 1. **Is your code running?** **Robot Code** is green in the Driver
+>    Station.
+> 1. **Is it *your* code?** Did the deploy say `BUILD SUCCESSFUL`, after
+>    your last change?
+> 1. **Did you create the motor with a logger?** The first argument is
+>    `log.name("motor")`, where `log` came from `Logging.root()`.
+> 1. **Is the log level right?** See below: `DEBUG` or `TRACE`, not
+>    `COMP`.
+>
+> Still stuck? Show a mentor your `robotPeriodic()` first.
+
 1. Open **NetworkTables → NetworkTables View**.
 1. Open `log`, then `motor` (the name you gave in `log.name("motor")`),
    then `KrakenX60Motor`.
 
    > 📷 **TODO screenshot:** `docs/img/glass_log_tree.png`.
 
-Don't see `supply current (A)`? The robot only publishes values at or
-above the **log level**. Open `SmartDashboard` → `Log Level` and make
+See `log`, but not `supply current (A)`? The robot only publishes
+values at or above the **log level**. Open `SmartDashboard` → `Log Level` and make
 sure it's `DEBUG` (the default) or `TRACE`, not `COMP`.
 
 ![](../img/log_level.png)

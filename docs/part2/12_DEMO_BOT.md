@@ -136,6 +136,10 @@ as fast as a target speed you choose.
 drum speeds as they spin up. Mark where they cross your target. How long
 does spin-up take?
 
+> **Nothing under `log` in Glass?** Your new study needs the same
+> `robotPeriodic()` calls as before
+> ([Step 2](../part1/08_MOTOR_CODE.md#step-2-keep-the-library-ticking)).
+
 <details>
 <summary>Hint</summary>
 

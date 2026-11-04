@@ -98,7 +98,8 @@ speed in **rotations per second**.
 <summary>Hint</summary>
 
 Your motor already logs its speed and currents. Find them in Glass
-under `log`. If you also print the speed, divide by the gear ratio to
+under `log`. Nothing there? Check your `robotPeriodic()`
+([Step 2 of Control a motor from code](../part1/08_MOTOR_CODE.md#step-2-keep-the-library-ticking)). If you also print the speed, divide by the gear ratio to
 get the disc's speed.
 </details>
 
