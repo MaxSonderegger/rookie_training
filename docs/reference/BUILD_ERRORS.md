@@ -60,7 +60,12 @@ version starts with the year from [the table](#which-year-goes-with-what).
 **Fix:** close it, and start the right one:
 
 * **Windows:** the **2026 WPILib VS Code** (or **2027**) icon on the
-  desktop, not Windows search.
+  desktop, not Windows search. Or find it in File Explorer: paste
+  `C:\Users\Public\wpilib\2026\vscode` (or the `2027…` folder) into the
+  address bar and double-click **Code.exe**. Not there? Try
+  `C:\Users\<you>\wpilib\2026\vscode` (WPILib installed for one user
+  only). To see which year a desktop icon opens: right-click it →
+  **Properties**, and read the **Target**.
 * **Mac:** not Spotlight or the Dock. In Finder, **Go → Go to Folder…**
   (`Shift+Cmd+G`), type `~/wpilib/2026/vscode` (or `2027`), and open
   **VSCode FRC 2026** (or 2027). Then right-click its Dock icon →

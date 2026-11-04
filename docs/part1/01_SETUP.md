@@ -142,7 +142,11 @@ should show `origin` pointing at **your** fork and `upstream` pointing at
    several VS Codes on your laptop: a plain one, and one for each WPILib
    year. Only the **2026 WPILib** one builds Parts 1 to 3.
    * **Windows:** the **2026 WPILib VS Code** icon on the desktop. Not
-     Windows search, which may find another one.
+     Windows search, which may find another one. No icon, or not sure
+     which year it opens? In File Explorer, paste
+     `C:\Users\Public\wpilib\2026\vscode` into the address bar, and
+     double-click **Code.exe**. (Right-click → **Pin to taskbar** for
+     next time.)
    * **Mac:** not Spotlight, and not the Dock, which may find another one.
      In Finder, **Go → Go to Folder…** (`Shift+Cmd+G`), type
      `~/wpilib/2026/vscode`, and open **VSCode FRC 2026**. Once it's
