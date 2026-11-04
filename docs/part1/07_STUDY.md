@@ -146,6 +146,14 @@ from `lib` is underlined in red, check these, in order:
    existing study (like `studies/discus`), just open its
    `.code-workspace` file, where it already is. To start your own, use
    **Create a new project**, as above.
+1. **Is it the right WPILib year?** Look at the top of `build.gradle`.
+   On `main` (Parts 1 to 3) it must say
+   `id "edu.wpi.first.GradleRIO" version "2026.2.1"`. If it says
+   `org.wpilib.GradleRIO` and `2027`, it was made or imported with 2027
+   WPILib, which can't build `lib` on `main` (2027 renamed the
+   `edu.wpi.first` packages to `org.wpilib`). Make the study again with
+   **2026** WPILib VS Code. (From Part 4 on, it's the other way around:
+   branch `2027` needs 2027 WPILib.)
 1. **Is the `sourceSets` block in your `build.gradle`?**
    ([step 2](#2-tell-gradle-about-lib))
 1. **Did you open the `.code-workspace` file?** If you opened just the
