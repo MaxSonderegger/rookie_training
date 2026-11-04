@@ -57,9 +57,28 @@ And the robot as a whole logs:
 
 ## Open Glass and connect
 
-1. In VS Code, `Ctrl+Shift+P` → **WPILib: Start Tool** → **Glass**.
+1. Start Glass.
+   * **Windows:** in VS Code, `Ctrl+Shift+P` → **WPILib: Start Tool** →
+     **Glass**.
 
-   > 📷 **TODO screenshot:** `docs/img/glass_start_tool.png`.
+     > 📷 **TODO screenshot:** `docs/img/glass_start_tool.png`.
+   * **Mac:** Glass isn't in VS Code's **Start Tool** list. Don't use
+     Spotlight either: every WPILib year installs its own Glass, all
+     called "Glass", and Spotlight may open the wrong year's. Open the
+     right one by its folder instead:
+     1. In Finder, **Go → Go to Folder…** (`Shift+Cmd+G`), and type
+        `~/wpilib/2026/tools`. (`2026` is the WPILib year; for the
+        SystemCore, from Part 4 on, it's `2027`.)
+     1. Double-click **Glass**. If the Mac says it can't be opened,
+        right-click it → **Open** → **Open**.
+
+     Or, in Terminal: `open ~/wpilib/2026/tools/Glass.app`
+
+     Tip: once it's running, right-click its Dock icon → **Options** →
+     **Keep in Dock**, so next time you get the same one.
+
+     > **TODO (mentors):** check the `2027` folder name on a Mac with
+     > 2027 WPILib installed.
 
 1. Connect Glass to the robot:
    1. **NetworkTables Settings** → **Client**

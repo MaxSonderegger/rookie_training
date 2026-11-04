@@ -288,7 +288,9 @@ Only with a mentor, the first few times.
 1. **Pick the auton in Glass.** The Driver Station can't choose which
    auton runs. If nobody picks one, the robot runs `NONE` and just sits
    there when you enable.
-   1. Open Glass (`Ctrl+Shift+P` → **WPILib: Start Tool** → **Glass**).
+   1. Open Glass: on Windows, `Ctrl+Shift+P` → **WPILib: Start Tool** →
+      **Glass**; on a Mac, from `~/wpilib/2026/tools`
+      ([how](../part2/10_GLASS_POWER.md#open-glass-and-connect)).
    1. Connect: **NetworkTables Settings** → **Client**, **Team** →
       **100**, **Apply**. (More in
       [Glass](../part2/10_GLASS_POWER.md#open-glass-and-connect).)

@@ -35,6 +35,7 @@ like this:
 | One CAN bus | Five CAN ports, `can_s0` … `can_s4`; in code, `new CanBusId(0)` … |
 | `edu.wpi.first.…` packages | `org.wpilib.…` packages |
 | "2026 WPILib VS Code" | "2027 WPILib VS Code" |
+| Mac: Glass from `~/wpilib/2026/tools` | Mac: Glass from `~/wpilib/2027/tools` ([how](../part2/10_GLASS_POWER.md#open-glass-and-connect)) |
 | Reset button reboots it | TODO: how to reboot or clear an e-stop |
 
 The SystemCore also has a web dashboard at http://robot.local, and its
