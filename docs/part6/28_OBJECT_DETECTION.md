@@ -14,7 +14,7 @@ it to do better.
 
 > 🚧 **This part is still being built.** It starts with retraining the
 > model. Sending the balls to the robot code comes later, in
-> [Part 7](../part7/28_FETCH_AND_SHOOT.md).
+> [Part 7](../part7/29_FETCH_AND_SHOOT.md).
 
 ## Why it matters
 
@@ -48,7 +48,7 @@ The code is in `all26` on the `2027` branch:
 
 1. Find a Pi that runs `Balls` (ask a mentor which one).
 1. Open its camera view in a browser: `http://<pi address>:1181`
-   ([how](../part3/15_VISION.md#exercise-see-what-the-pi-sees)).
+   ([how](../part5/23_VISION.md#exercise-see-what-the-pi-sees)).
 1. Put a yellow ball in front of the camera. You should see a green box.
 
 > **Check yourself:** read `balls.py`. Find:
@@ -62,7 +62,7 @@ The code is in `all26` on the `2027` branch:
 ## Step 2: Find where it fails
 
 Before you fix a model, you need to know **how** it's wrong. Be a
-breaker, like in [Break the cameras](../part3/17_BREAK_THE_CAMERAS.md).
+breaker, like in [Break the cameras](../part5/25_BREAK_THE_CAMERAS.md).
 
 Try each of these, and write down what happens:
 
@@ -200,4 +200,4 @@ robot that drives to balls?
 > reading them in Java with
 > [`Targets`](https://github.com/Team100/all26/blob/2027/lib/src/main/java/org/team100/lib/targeting/Targets.java).
 
-Next: [Part 7: Fetch and shoot](../part7/28_FETCH_AND_SHOOT.md)
+Next: [Part 7: Fetch and shoot](../part7/29_FETCH_AND_SHOOT.md)

@@ -28,7 +28,7 @@ checkpoint, and hints if you're stuck, just like
 > **Connecting:** plug a **USB-B cable** straight from your laptop into
 > the robot's RoboRIO, just like the test board in
 > [Deploy](../part1/04_DEPLOY.md). No radios needed: those come in
-> [Part 5](../part5/23_ROBOT_NETWORK.md), on the real robot.
+> [Part 4](../part4/17_ROBOT_NETWORK.md), on the real robot.
 
 ## Step 1: Find the motor
 

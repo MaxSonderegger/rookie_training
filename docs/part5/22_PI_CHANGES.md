@@ -1,7 +1,7 @@
 # Change the Raspberry Pi code and deploy it
 
 The Pi cameras run our own Python app from
-[`raspberry_pi/`](https://github.com/Team100/all26/tree/main/raspberry_pi). This page takes you from an idea to
+[`raspberry_pi/`](https://github.com/Team100/all26/tree/2027/raspberry_pi). This page takes you from an idea to
 your change running on a Pi and merged into the team code.
 
 The short version:
@@ -14,9 +14,9 @@ sync fork → branch → edit → test on laptop → deploy to Pi → check → 
 
 1. Do [Setup](../part1/01_SETUP.md) so you have your fork cloned.
 1. Set up Python and the VS Code extensions:
-   [raspberry_pi/doc/setup.md](https://github.com/Team100/all26/blob/main/raspberry_pi/doc/setup.md).
+   [raspberry_pi/doc/setup.md](https://github.com/Team100/all26/blob/2027/raspberry_pi/doc/setup.md).
    This creates a virtual environment in `raspberry_pi/env`.
-1. Read the [code walkthrough](https://github.com/Team100/all26/blob/main/raspberry_pi/doc/walkthrough.md) so you
+1. Read the [code walkthrough](https://github.com/Team100/all26/blob/2027/raspberry_pi/doc/walkthrough.md) so you
    know where things are.
 
 Open the **`raspberry_pi`** folder in VS Code (not the whole repo), so the
@@ -27,8 +27,8 @@ Python and Gradle extensions find everything.
 As in the [fork workflow](../part1/02_FORK_WORKFLOW.md):
 
 ```
-git checkout main
-git pull upstream main
+git checkout 2027
+git pull upstream 2027
 git checkout -b alice/pi-exposure
 ```
 
@@ -37,10 +37,10 @@ git checkout -b alice/pi-exposure
 Edit files under `raspberry_pi/app/`. Keep changes small; one idea per PR.
 
 If you're adding a **new Pi**, add its serial number (from
-`grep Serial /proc/cpuinfo` on the Pi; see [SSH and checks](13_SSH_AND_CHECKS.md))
-to [identity.py](https://github.com/Team100/all26/blob/main/raspberry_pi/app/config/identity.py), **and** keep
+`grep Serial /proc/cpuinfo` on the Pi; see [SSH and checks](21_SSH_AND_CHECKS.md))
+to [identity.py](https://github.com/Team100/all26/blob/2027/raspberry_pi/app/config/identity.py), **and** keep
 the Java side,
-[Camera.java](https://github.com/Team100/all26/blob/main/lib/src/main/java/org/team100/lib/camera/Camera.java),
+[Camera.java](https://github.com/Team100/all26/blob/2027/lib/src/main/java/org/team100/lib/camera/Camera.java),
 in sync.
 
 ## 3. Test on your laptop first
@@ -59,13 +59,13 @@ python runapp.py
   that the test image is processed the way you expect. Press Ctrl-C to
   stop it.
 
-See [run_locally.md](https://github.com/Team100/all26/blob/main/raspberry_pi/doc/run_locally.md) for running
+See [run_locally.md](https://github.com/Team100/all26/blob/2027/raspberry_pi/doc/run_locally.md) for running
 tests from the VS Code test pane.
 
 ## 4. Deploy to a Pi
 
 1. Connect your laptop to the Pi (or the robot) and check that you can
-   `ping` it. See [SSH and checks](13_SSH_AND_CHECKS.md#connect-your-laptop).
+   `ping` it. See [SSH and checks](21_SSH_AND_CHECKS.md#connect-your-laptop).
 1. In VS Code's **Gradle** pane, run
    `raspberry_pi → Tasks → deploy → Deploy Camera Code`.
 
@@ -75,13 +75,13 @@ tests from the VS Code test pane.
 
 What the deploy does: it zips `app/`, copies the zip and `runapp.py` to
 `/home/pi` on each Pi, and restarts the app with `supervisorctl`. Details
-are in [deploy.md](https://github.com/Team100/all26/blob/main/raspberry_pi/doc/deploy.md).
+are in [deploy.md](https://github.com/Team100/all26/blob/2027/raspberry_pi/doc/deploy.md).
 
 > **Heads up:** deploy sends your code to **every camera it can reach**
-> (the list is in [build.gradle](https://github.com/Team100/all26/blob/main/raspberry_pi/build.gradle)). If you're
+> (the list is in [build.gradle](https://github.com/Team100/all26/blob/2027/raspberry_pi/build.gradle)). If you're
 > plugged into a competition robot, all its cameras now run your
 > unmerged code. Tell the mentor and drive team, and redeploy from the
-> team's `main` branch when you're done.
+> team's `2027` branch when you're done.
 >
 > If your Pi's IP isn't in the `remotes` list in `build.gradle`, add it.
 
@@ -91,9 +91,9 @@ are in [deploy.md](https://github.com/Team100/all26/blob/main/raspberry_pi/doc/d
   (green). Click `stderr` to see errors.
 * `http://<pi-ip>:1181`: the live annotated camera view.
 * In Glass (as the "server", with your laptop at `10.1.0.2`), check that the
-  `vision` values are updating. See [use.md](https://github.com/Team100/all26/blob/main/raspberry_pi/doc/use.md).
+  `vision` values are updating. See [use.md](https://github.com/Team100/all26/blob/2027/raspberry_pi/doc/use.md).
 * Or `ssh pi@<pi-ip>` and run the checks in
-  [SSH and checks](13_SSH_AND_CHECKS.md#raspberry-pi).
+  [SSH and checks](21_SSH_AND_CHECKS.md#raspberry-pi).
 
 If the app keeps crashing, the error is in `app.stderr`. Fix the code on
 your laptop and deploy again. **Don't edit the files on the Pi**; they're
@@ -111,10 +111,10 @@ Pushing a change under `raspberry_pi/` runs the **Raspberry Pi Tests**
 workflow on your fork (if you
 [enabled Actions](../part1/01_SETUP.md#turn-on-github-actions-for-your-fork)). Check
 that the **Actions** tab is green, then open a PR against
-**`Team100/all26`, branch `main`**. In the description, say which Pi you
+**`Team100/all26`, branch `2027`**. In the description, say which Pi you
 tested on and what you saw at `:1181`.
 
-After it's merged, sync your fork and redeploy from `main` so the robot
+After it's merged, sync your fork and redeploy from `2027` so the robot
 runs the team's code.
 
 ## Troubleshooting
@@ -122,9 +122,9 @@ runs the team's code.
 | Symptom | Likely cause |
 | --- | --- |
 | Deploy says `skipping` for your Pi | Laptop can't reach it: check `ping`, cable, and laptop IP |
-| `app FATAL can't find command '/home/pi/env/bin/python'` | The Pi was never fully set up; see [pi_setup.md](https://github.com/Team100/all26/blob/main/raspberry_pi/doc/pi_setup.md) |
-| `:1181` is blank but `app` is running | No camera found; see [Is a camera attached?](13_SSH_AND_CHECKS.md#is-a-camera-attached) |
+| `app FATAL can't find command '/home/pi/env/bin/python'` | The Pi was never fully set up; see [pi_setup.md](https://github.com/Team100/all26/blob/2027/raspberry_pi/doc/pi_setup.md) |
+| `:1181` is blank but `app` is running | No camera found; see [Is a camera attached?](21_SSH_AND_CHECKS.md#is-a-camera-attached) |
 | Works on laptop, crashes on Pi | A library is missing on the Pi, or the code needs the real camera. Read `app.stderr` |
 | Robot sees no vision data | Pi can't reach `10.1.0.2`, or its serial isn't in `identity.py`/`Camera.java` |
 
-Next: [How our vision works](15_VISION.md)
+Next: [How our vision works](23_VISION.md)

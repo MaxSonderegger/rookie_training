@@ -26,9 +26,10 @@ What's new compared to the 2025 guide:
 * **Forks, not branches on the team repo.** You never push to
   `Team100/all26` directly. You push to your own copy (your *fork*) and
   open a pull request.
-* **Seven parts.** Basics, real robots, vision, and auton on a
-  **RoboRIO**; then the new **SystemCore** controller, finding balls
-  with a neural network, and a final challenge that uses everything.
+* **Seven parts.** Basics, real robots, localization, and auton on a
+  **RoboRIO**; then the new **SystemCore** controller, cameras and
+  vision, finding balls with a neural network, and a final challenge
+  that uses everything.
 * **Krakens only.** The competition robot uses Kraken X60 and X44
   motors, so that's what this guide uses.
 * **Raspberry Pi 5 cameras** run our own Python vision code, and you can
@@ -43,7 +44,7 @@ What's new compared to the 2025 guide:
 
 ## Part 1: The basics
 
-Learn the basics on a RoboRIO test board. Parts 1 to 4 use the
+Learn the basics on a RoboRIO test board. Parts 1 to 3 use the
 **`main`** branch of `Team100/all26` and **2026 WPILib**.
 
 ### Getting started
@@ -82,41 +83,42 @@ Real mechanisms, tethered to your laptop with a cable. Start with
 1. **Easy mode: [the Discus](docs/part2/11_DISCUS.md)**: spin a heavy disc, measure it, make it hold a speed; 🏆 Discus Challenge
 1. **Hard mode: [the shooter bot](docs/part2/12_DEMO_BOT.md)**: spin up the shooter and feed balls, safely; 🏆 Shooter Challenge
 
-## Part 3: Raspberry Pis and vision
+## Part 3: Localization and auton
 
-13. **[SSH into the RoboRIO and the Pis](docs/part3/13_SSH_AND_CHECKS.md)**: log in and check that things are healthy
-1. **[Change the Raspberry Pi code](docs/part3/14_PI_CHANGES.md)**: edit, test, deploy, PR
-1. **[How our vision works](docs/part3/15_VISION.md)**: cameras, AprilTags, and why vision answers are always a little late
-1. **[Set up a new camera](docs/part3/16_NEW_CAMERA.md)**: measure it, calibrate it, and measure again: before vs. after
-1. **[Break the cameras (on purpose)](docs/part3/17_BREAK_THE_CAMERAS.md)**: the breaker vs. finder game, and measuring detection limits
-   * [Breaker cards](docs/part3/BREAKER_CARDS.md) (finders: don't peek!) · [Finder's guide](docs/part3/FINDER_GUIDE.md)
-1. **🏆 [The Vision Shooter Challenge](docs/part3/18_VISION_SHOOTER_CHALLENGE.md)**: the camera finds the bucket (8–12 m), and the shooter adjusts by itself
+13. **[Where am I?](docs/part3/13_LOCALIZATION.md)**: how the wheels tell the robot where it is, and how wrong they get; hands-on experiments with graphs
+1. **[Work on auton](docs/part3/14_AUTON.md)**: simulate a circle, then measure real error
+1. **🏆 [Park on the X](docs/part3/15_PARK_ON_THE_X.md)**: from a taped start, the demo bot drives itself to a spot, using only its wheels
 
-## Part 4: Localization and auton
-
-19. **[Where am I?](docs/part4/19_LOCALIZATION.md)**: odometry, vision, and how the robot combines them
-1. **[Work on auton](docs/part4/20_AUTON.md)**: simulate a circle, then measure real error
-1. **🏆 [Park on the X](docs/part4/21_PARK_ON_THE_X.md)**: from a random start, the demo bot finds itself and parks on a secret spot
-
-## Part 5: SystemCore, all together, on the real robot
+## Part 4: SystemCore, all together, on the real robot
 
 The competition robot runs on the new
-[SystemCore](https://docs.wpilib.org/en/2027/). Parts 5 to 7 use the
+[SystemCore](https://docs.wpilib.org/en/2027/). Parts 4 to 7 use the
 **`2027`** branch of `Team100/all26` and **2027 WPILib**.
 
-22. **[Switch to the SystemCore](docs/part5/22_SYSTEMCORE.md)**: what's different, the `2027` branch, deploy, CAN ports, SSH
-1. **[Connect to the robot (radios)](docs/part5/23_ROBOT_NETWORK.md)**: radios, laptop network, robot etiquette
-1. **[Robot identity](docs/part5/24_IDENTITY.md)**: how the code knows which robot it's on
-1. **[Put it together on the demo bot](docs/part5/25_DEMO_BOT_SYSTEMCORE.md)**: move your shooter study to the SystemCore and bring up the whole robot
-1. **🏆 [Park on the X, again](docs/part5/26_PARK_ON_THE_X_SYSTEMCORE.md)**: the Part 4 challenge on the new stack; did it get better?
+16. **[Switch to the SystemCore](docs/part4/16_SYSTEMCORE.md)**: what's different, the `2027` branch, deploy, CAN ports, SSH
+1. **[Connect to the robot (radios)](docs/part4/17_ROBOT_NETWORK.md)**: radios, laptop network, robot etiquette
+1. **[Robot identity](docs/part4/18_IDENTITY.md)**: how the code knows which robot it's on
+1. **[Put it together on the demo bot](docs/part4/19_DEMO_BOT_SYSTEMCORE.md)**: move your shooter study to the SystemCore and bring up the whole robot
+1. **🏆 [Park on the X, again](docs/part4/20_PARK_ON_THE_X_SYSTEMCORE.md)**: the Part 3 challenge on the new stack; did it get better?
+
+## Part 5: Raspberry Pis and vision
+
+21. **[SSH into the Pis](docs/part5/21_SSH_AND_CHECKS.md)**: log in and check that things are healthy
+1. **[Change the Raspberry Pi code](docs/part5/22_PI_CHANGES.md)**: edit, test, deploy, PR
+1. **[How our vision works](docs/part5/23_VISION.md)**: cameras, AprilTags, and why vision answers are always a little late
+1. **[Set up a new camera](docs/part5/24_NEW_CAMERA.md)**: measure it, calibrate it, and measure again: before vs. after
+1. **[Break the cameras (on purpose)](docs/part5/25_BREAK_THE_CAMERAS.md)**: the breaker vs. finder game, and measuring detection limits
+   * [Breaker cards](docs/part5/BREAKER_CARDS.md) (finders: don't peek!) · [Finder's guide](docs/part5/FINDER_GUIDE.md)
+1. **🏆 [The Vision Shooter Challenge](docs/part5/26_VISION_SHOOTER_CHALLENGE.md)**: the camera finds the bucket (8–12 m), and the shooter adjusts by itself
+1. **🏆 [Park on the X, from anywhere](docs/part5/27_PARK_FROM_ANYWHERE.md)**: from a random start, the demo bot looks at an AprilTag, finds itself, and parks
 
 ## Part 6: Spot the balls 🚧
 
-27. **[Object detection](docs/part6/27_OBJECT_DETECTION.md)**: see what our YOLO model finds, break it, retrain it; 🏆 Ball Spotter Challenge
+28. **[Object detection](docs/part6/28_OBJECT_DETECTION.md)**: see what our YOLO model finds, break it, retrain it; 🏆 Ball Spotter Challenge
 
 ## Part 7: Put it all together 🚧
 
-28. **🏆 [Fetch and shoot](docs/part7/28_FETCH_AND_SHOOT.md)**: the demo bot finds the yellow balls, picks them up, drives to the X, and shoots them into the hopper, all by itself
+29. **🏆 [Fetch and shoot](docs/part7/29_FETCH_AND_SHOOT.md)**: the demo bot finds the yellow balls, picks them up, drives to the X, and shoots them into the hopper, all by itself
 
 ## Advanced (mentor approval required)
 
@@ -125,7 +127,7 @@ The competition robot runs on the new
 
 ## Whenever you need them
 
-* [RoboRIO → SystemCore cheat sheet](docs/part5/22_SYSTEMCORE.md#roborio--systemcore-cheat-sheet)
+* [RoboRIO → SystemCore cheat sheet](docs/part4/16_SYSTEMCORE.md#roborio--systemcore-cheat-sheet)
 * [Debugging](docs/reference/DEBUGGING.md): errors, prints, logs, the debugger
 * [Troubleshooting](docs/reference/TROUBLESHOOTING.md): Git, build, deploy, and robot problems
 * [Coding conventions](https://github.com/Team100/all26/blob/2027/lib/doc/getting_started/Conventions.md)

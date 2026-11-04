@@ -6,9 +6,6 @@ getting your laptop talking to a real **SystemCore** robot (like the
 demo bot, or the competition robot), setting up the radios, and testing
 your code on it without causing trouble for anyone else.
 
-Addresses for the Pis are in
-[SSH and checks](../part3/13_SSH_AND_CHECKS.md#whos-who-on-the-robot-network).
-
 ## How the pieces connect
 
 ```
@@ -59,7 +56,7 @@ Laptop ──Ethernet──▶ Access point (VH-109, "Access Point Mode", on the
 If any step fails, go to [Troubleshooting](#troubleshooting) below.
 
 **No radios at all?** Plug a USB-C cable from the laptop into the
-SystemCore (see [Deploy to a SystemCore](22_SYSTEMCORE.md#3-deploy-to-a-systemcore)). That's enough to deploy
+SystemCore (see [Deploy to a SystemCore](16_SYSTEMCORE.md#3-deploy-to-a-systemcore)). That's enough to deploy
 and drive, as long as the robot is on blocks or tethered.
 
 ## Laptop network settings
@@ -212,11 +209,11 @@ on it. So:
    * Say **"Enabling!"** loudly before you enable.
 1. **Check the basics** before you blame your code: Driver Station lights
    green, battery above about 12.5 V, correct auton selected, no errors
-   scrolling in the console. See [SSH and checks](../part3/13_SSH_AND_CHECKS.md).
+   scrolling in the console. See [SSH into the SystemCore](16_SYSTEMCORE.md#6-ssh-into-the-systemcore).
 1. **Put it back.** When you're done, redeploy the team's code from the
    `2027` branch (or whatever was on it before), unless the mentor says
-   otherwise. The same goes for the Pis if you deployed camera code
-   ([Pi changes](../part3/14_PI_CHANGES.md#4-deploy-to-a-pi)).
+   otherwise. (Later, in Part 5, the same goes for the Pi cameras if
+   you deploy camera code to them.)
 1. **Write down what you learned** in your PR description: what you
    tested, on which robot, and what happened.
 
@@ -240,7 +237,7 @@ Work from the laptop outward:
 1. **`robot.local` doesn't resolve, but `10.1.0.2` works:** that's a
    name-lookup problem on the laptop, not the robot. Just use the IP.
 1. **Nothing works:** go back to a USB-C cable straight to the SystemCore
-   ([SSH](22_SYSTEMCORE.md#6-ssh-into-the-systemcore)).
+   ([SSH](16_SYSTEMCORE.md#6-ssh-into-the-systemcore)).
 
 ## Good to know
 
@@ -255,4 +252,4 @@ Work from the laptop outward:
 * Useful SystemCore ports: 22 (ssh), 80 (web dashboard), 5810
   (NetworkTables).
 
-Next: [Robot identity](24_IDENTITY.md)
+Next: [Robot identity](18_IDENTITY.md)

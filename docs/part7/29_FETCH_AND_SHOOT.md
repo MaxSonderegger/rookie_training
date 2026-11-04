@@ -5,12 +5,12 @@ This is the final challenge. It puts **everything** together.
 The demo bot starts on the floor with an empty hopper. By itself, with
 nobody touching the controls, it has to:
 
-1. **find** the yellow balls with its camera ([Part 6](../part6/27_OBJECT_DETECTION.md)),
-1. **drive** to them and **pick them up** ([Part 4](../part4/20_AUTON.md)),
+1. **find** the yellow balls with its camera ([Part 6](../part6/28_OBJECT_DETECTION.md)),
+1. **drive** to them and **pick them up** ([Part 3](../part3/14_AUTON.md)),
 1. **drive to the X** on the floor and **know** it's there
-   ([Park on the X](../part5/26_PARK_ON_THE_X_SYSTEMCORE.md)),
+   ([Park on the X, from anywhere](../part5/27_PARK_FROM_ANYWHERE.md)),
 1. **shoot** them into the hopper ([Part 2](../part2/12_DEMO_BOT.md) and
-   [Part 3](../part3/18_VISION_SHOOTER_CHALLENGE.md)).
+   [Part 5](../part5/26_VISION_SHOOTER_CHALLENGE.md)).
 
 It runs on the **SystemCore**, on the `2027` branch.
 
@@ -47,10 +47,10 @@ before you start the next.
 | # | Piece | Checkpoint | You learned it in |
 | --- | --- | --- | --- |
 | 1 | Shoot from the X | Robot placed on the X by hand shoots 5 balls; most go in | [Shooter Challenge](../part2/12_DEMO_BOT.md#-the-shooter-challenge) |
-| 2 | Drive to the X | From a random start, ends within 20 cm | [Park on the X](../part5/26_PARK_ON_THE_X_SYSTEMCORE.md) |
-| 3 | 1 + 2 together | Drive to the X, then shoot, all in auton | [Park and shoot](../part4/21_PARK_ON_THE_X.md#scoring) stretch |
-| 4 | See a ball, in the robot code | The ball's position shows up in Glass, and it's about right (check with a tape measure) | [Spot the balls](../part6/27_OBJECT_DETECTION.md#coming-next) |
-| 5 | Drive to one ball | Robot stops with the ball right in front of it | Part 4 + Part 6 |
+| 2 | Drive to the X | From a random start, ends within 20 cm | [Park on the X, from anywhere](../part5/27_PARK_FROM_ANYWHERE.md) |
+| 3 | 1 + 2 together | Drive to the X, then shoot, all in auton | [Park and shoot](../part5/27_PARK_FROM_ANYWHERE.md#records) stretch |
+| 4 | See a ball, in the robot code | The ball's position shows up in Glass, and it's about right (check with a tape measure) | [Spot the balls](../part6/28_OBJECT_DETECTION.md#coming-next) |
+| 5 | Drive to one ball | Robot stops with the ball right in front of it | Part 3 + Part 6 |
 | 6 | Pick up one ball | Ball ends up inside the robot | TODO (mentors) |
 | 7 | Fetch all of them | Picks up balls until it can't see any more | — |
 | 8 | **Everything** | Fetch, drive to the X, shoot | — |
@@ -61,7 +61,7 @@ before you start the next.
 Write the whole run as a **sequence** of commands, like the steps in
 the table: "fetch until no balls are left, then drive to the X, then
 shoot until empty". You used `sequence(...)` and `.until(...)` in the
-[auton chapter](../part4/20_AUTON.md#commands-doing-things-in-order).
+[auton chapter](../part3/14_AUTON.md#commands-doing-things-in-order).
 </details>
 
 <details>

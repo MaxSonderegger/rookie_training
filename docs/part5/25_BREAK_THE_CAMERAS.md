@@ -42,7 +42,7 @@ use.
 ## Before you start: know what "healthy" looks like
 
 You can't spot "broken" until you know "working". With a Pi connected to
-your laptop or the robot ([how](13_SSH_AND_CHECKS.md#connect-your-laptop)),
+your laptop or the robot ([how](21_SSH_AND_CHECKS.md#connect-your-laptop)),
 write down what each of these shows when everything is fine:
 
 | Where to look | What you see when healthy |
@@ -147,7 +147,7 @@ with fast motion. Keep that in mind for the speed test.
 > 1. Why do you think fast movement makes detection fail? (Hint: what
 >    happens to a photo of something moving fast?)
 > 2. Our code trusts far-away tags **less** (see
->    [Where am I?](../part4/19_LOCALIZATION.md)). Does your distance
+>    [Where am I?](../part3/13_LOCALIZATION.md)). Does your distance
 >    test agree that far tags are worse? How?
 > 3. If the robot will see tags from 4 m away while driving at 2 m/s,
 >    will it work, based on your measurements?
@@ -158,8 +158,8 @@ tries.
 ## Share what you learned
 
 Post both tables in Slack, and add the useful rows to the
-[Troubleshooting table in Change the Pi code](14_PI_CHANGES.md#troubleshooting)
+[Troubleshooting table in Change the Pi code](22_PI_CHANGES.md#troubleshooting)
 with a pull request. The next person who sees "`:1181` is blank" at a
 competition will thank you.
 
-Next: [The Vision Shooter Challenge](18_VISION_SHOOTER_CHALLENGE.md)
+Next: [The Vision Shooter Challenge](26_VISION_SHOOTER_CHALLENGE.md)

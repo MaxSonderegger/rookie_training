@@ -37,7 +37,7 @@ low power keeps the ball well under that.
 > **Connecting:** plug a **USB-B cable** straight from your laptop into
 > the demo bot's RoboRIO, just like the test board in
 > [Deploy](../part1/04_DEPLOY.md). No radios needed: those come in
-> [Part 5](../part5/23_ROBOT_NETWORK.md), on the real robot.
+> [Part 4](../part4/17_ROBOT_NETWORK.md), on the real robot.
 
 Keep the robot **on blocks** (wheels off the floor) while it's tethered:
 you're testing the shooter, not driving.
@@ -288,8 +288,8 @@ robot was pointing, the right drum speed, how each ball would fly.
 >    itself? What would it need to know about its own camera to get the
 >    distance right?
 
-Keep your list. In [Part 3](../part3/15_VISION.md), robots use cameras to
+Keep your list. In [Part 5](../part5/23_VISION.md), robots use cameras to
 measure where things are, and you'll see why a camera has to be
 **calibrated** before its measurements can be trusted.
 
-Next: [Part 3: SSH into the RoboRIO and the Pis](../part3/13_SSH_AND_CHECKS.md)
+Next: [Part 3: Where am I? (localization)](../part3/13_LOCALIZATION.md)

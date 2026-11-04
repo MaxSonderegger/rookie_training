@@ -60,7 +60,7 @@ freely.
    It installs "2026 WPILib VS Code", Java, and the WPILib tools. Use this
    VS Code for robot code, not a different VS Code you already have.
    (You'll add 2027 WPILib later, when you
-   [switch to the SystemCore](../part5/22_SYSTEMCORE.md).)
+   [switch to the SystemCore](../part4/16_SYSTEMCORE.md).)
 1. **Git.** Windows: install [Git for Windows](https://git-scm.com/download/win)
    and accept the defaults. Mac: run `xcode-select --install`.
 1. **GitHub Desktop** (optional but recommended):

@@ -9,7 +9,7 @@ make sure it's really broken, and then put it back **exactly** the way
 it was. Every card is something that really happens to robots at
 competitions. Read the whole card before you start.
 
-Rules (see [the game](17_BREAK_THE_CAMERAS.md#lab-1-the-breaker-vs-finder-game)):
+Rules (see [the game](25_BREAK_THE_CAMERAS.md#lab-1-the-breaker-vs-finder-game)):
 
 * **Only the cards a mentor approved.** Nothing else.
 * **Check it's really broken** using the card's "What the finder should
@@ -127,7 +127,7 @@ needed, and check `:1181` again.
 **Do it:** on **your** laptop, set your Ethernet to a static IP address
 that is the **same** as one of the Pis (for example `10.1.0.31`, mask
 `255.255.255.0`), with your laptop plugged into the robot's network.
-(See [Connect to the robot](../part5/23_ROBOT_NETWORK.md) for how to set
+(See [Connect to the robot](../part4/17_ROBOT_NETWORK.md) for how to set
 an IP.)
 
 **Why:** two devices with the same IP address confuse the whole network:
@@ -164,7 +164,7 @@ power on. Check `vcgencmd get_throttled` says `0x0`.
 **Do it:** with a mentor, on a branch in **your fork**, make one small
 change in the Pi code that makes it crash at startup (for example, a
 typo in a name). Deploy it to the Pi
-([how](14_PI_CHANGES.md#4-deploy-to-a-pi)).
+([how](22_PI_CHANGES.md#4-deploy-to-a-pi)).
 
 **Why:** "it worked on my laptop" is the most famous last words in
 programming. A bad deploy right before a match is a classic disaster,
@@ -175,14 +175,14 @@ teaches the finder to read **logs** and to ask "what changed?".
 over (or **FATAL**), and `app.stderr` shows a Python error with your
 typo in it.
 
-**Undo:** redeploy the team's code from `main`. Check `:9001` says
+**Undo:** redeploy the team's code from `2027`. Check `:9001` says
 **RUNNING** and stays that way for a minute. Delete your test branch.
 
 ## Card 10 ⭐⭐⭐: Robot side gone
 
 **Do it:** leave the Pi completely alone. Instead, turn off the robot's
 **radio**, or unplug the Ethernet cable between the switch and the
-**RoboRIO**.
+**SystemCore**.
 
 **Why:** the Pi can be perfect and the robot still gets no vision,
 because the problem is on the **other** end. It teaches the finder to
@@ -190,7 +190,7 @@ check the whole path, not just the Pi.
 
 **What the finder should see:** the Pi is healthy, and the camera view
 works from a laptop on the same switch, but the Pi can't `ping` the
-RoboRIO (`10.1.0.2`), and the robot gets no vision data.
+SystemCore (`10.1.0.2`), and the robot gets no vision data.
 
 **Undo:** turn the radio back on (wait 90 seconds for it to link), or
 plug the cable back in. Check the Pi can `ping 10.1.0.2` again.
@@ -216,7 +216,7 @@ the edges of the picture. The Pi's normal output (`app.stdout`, not
 `stderr`) shows a big **CAMERA INTRINSIC IS NOT CALIBRATED** banner at
 startup.
 
-**Undo:** redeploy the team's code from `main`. Check the banner is
+**Undo:** redeploy the team's code from `2027`. Check the banner is
 gone, and a tag at a known distance reads correctly. Delete your test
 branch.
 

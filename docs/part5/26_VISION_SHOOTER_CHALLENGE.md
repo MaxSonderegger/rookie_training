@@ -35,7 +35,7 @@ something you **do** trust: a tape measure.
 >    much, at 8 m and at 12 m?
 > 2. Do the 3 readings at each distance agree with each other? Which is
 >    worse, near or far? (Compare with your
->    [limits lab](17_BREAK_THE_CAMERAS.md#lab-2-measure-the-limits).)
+>    [limits lab](25_BREAK_THE_CAMERAS.md#lab-2-measure-the-limits).)
 > 3. If the camera is always off the **same way**, you can **correct** it:
 >    write a rule like `true = a + b × camera`. That's **calibration**.
 >    What are your `a` and `b`?
@@ -80,7 +80,7 @@ prints the distance and speed it chose.
 The Pi sends what it sees over **NetworkTables**, the same system Glass
 shows you. Find the tag's values in Glass first. Then look up how to
 read a NetworkTables value from Java in the
-[WPILib docs](https://docs.wpilib.org/en/stable/docs/software/networktables/index.html),
+[WPILib docs](https://docs.wpilib.org/en/2027/docs/software/networktables/index.html),
 or ask a mentor.
 
 > **TODO (mentors):** add which NetworkTables topic has the tag
@@ -121,4 +121,4 @@ video to **`#rookie_training`**.
 > Shooter Challenge score. Which was better? What did the camera fix,
 > and what new problems did it bring?
 
-Next: [Part 4: Where am I?](../part4/19_LOCALIZATION.md)
+Next: [🏆 Park on the X, from anywhere](27_PARK_FROM_ANYWHERE.md)

@@ -2,7 +2,7 @@
 
 You're the **finder**. Something on the vision system is broken, and
 you don't know what. Your job: find the cause, and **show the evidence**.
-(Rules: [the game](17_BREAK_THE_CAMERAS.md#lab-1-the-breaker-vs-finder-game).
+(Rules: [the game](25_BREAK_THE_CAMERAS.md#lab-1-the-breaker-vs-finder-game).
 Don't read the breaker cards!)
 
 This page doesn't tell you the answer. It gives you a **method**: check
@@ -42,7 +42,7 @@ blinking now and then?
 ## Layer 2: Can you reach the Pi?
 
 **Check:** from your laptop (on the robot network,
-[how](13_SSH_AND_CHECKS.md#connect-your-laptop)):
+[how](21_SSH_AND_CHECKS.md#connect-your-laptop)):
 
 ```
 ping 10.1.0.31
@@ -125,12 +125,12 @@ it clean? Is it pointing where it should?
 
 **Check:** in Glass on the robot side, are the vision values updating
 when a tag is in view? And from the Pi (over ssh), does
-`ping -c 3 10.1.0.2` reach the RoboRIO?
+`ping -c 3 10.1.0.2` reach the SystemCore?
 
 **Why:** the Pi can be doing everything right, and the data still never
 arrives, because the problem is on the robot's side of the network.
 
-**If it fails:** check the path from the switch to the RoboRIO, and the
+**If it fails:** check the path from the switch to the SystemCore, and the
 radio.
 
 > **TODO (mentors):** add which NetworkTables values in Glass show
@@ -149,7 +149,7 @@ its shots and gets lost on the field, and nothing ever shows an error.
 
 **If it fails:** wrong everywhere by about the same amount, or worse at
 the edges? Think about what the camera needs to know about **itself** to
-turn pixels into meters ([Set up a new camera](16_NEW_CAMERA.md)). Has
+turn pixels into meters ([Set up a new camera](24_NEW_CAMERA.md)). Has
 anything about this camera, or which Pi it's on, changed?
 
 ## When you think you've found it

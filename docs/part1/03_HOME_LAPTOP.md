@@ -39,7 +39,7 @@ You made a GitHub account and a fork in
    as you.
 1. Clone **your fork** of `all26`, choose **To contribute to the parent
    project**, just like in [SETUP](01_SETUP.md#clone-your-fork). You'll
-   be on **`main`**; after you [switch to the SystemCore](../part5/22_SYSTEMCORE.md),
+   be on **`main`**; after you [switch to the SystemCore](../part4/16_SYSTEMCORE.md),
    you'll use `2027`.
 1. Clone this guide too (`Team100/rookie_training`, or your fork of it)
    if you want to help improve it.
@@ -55,9 +55,9 @@ in the setup page: **WPILib 2026** (which brings its own VS Code and
 Java), **Git**, and your Git name and email.
 
 * Use **2026 WPILib VS Code** for robot code, even if you already have
-  VS Code. When you reach the [SystemCore](../part5/22_SYSTEMCORE.md), add
+  VS Code. When you reach the [SystemCore](../part4/16_SYSTEMCORE.md), add
   **WPILib 2027** too.
-* For [Pi code](../part3/14_PI_CHANGES.md), you'll also want Python and its VS Code
+* For [Pi code](../part5/22_PI_CHANGES.md), you'll also want Python and its VS Code
   extensions.
 * **Phoenix Tuner X** (for Krakens) is only useful in the shop, next to
   the hardware. Skip it at home. (It's free on Windows, but the Mac App
@@ -95,7 +95,7 @@ The rules are the same as in the shop (see [Using AI here](../../README.md#using
 | Run the [simulator](09_SIMULATOR.md) and Glass against it | Spin real motors |
 | Write and run unit tests | [Power-draw tests](../part2/10_GLASS_POWER.md) |
 | Push, open PRs, review other people's PRs | SSH into the robot or the Pis |
-| Run the [Pi code](../part3/14_PI_CHANGES.md) with a fake camera | Set CAN IDs |
+| Run the [Pi code](../part5/22_PI_CHANGES.md) with a fake camera | Set CAN IDs |
 | Read the code and the docs | |
 
 ## Checkpoint

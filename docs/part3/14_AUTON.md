@@ -11,7 +11,7 @@ robot motion: **pose**, **transform**, **heading**, **course**,
 Before you start, you should have finished
 [Setup](../part1/01_SETUP.md), [Fork workflow](../part1/02_FORK_WORKFLOW.md), the
 [simulator chapter](../part1/09_SIMULATOR.md), and
-[Where am I? (localization)](19_LOCALIZATION.md). This chapter uses the
+[Where am I? (localization)](13_LOCALIZATION.md). This chapter uses the
 `main` branch and a RoboRIO robot.
 
 ## Part 1: The ideas
@@ -39,8 +39,10 @@ and find the picture.
 > **Check yourself:** a robot at `new Pose2d(4, 2.5, Rotation2d.kPi)`
 > drives "forward". Does x get bigger or smaller?
 
-Our code keeps track of the robot's current pose using wheel odometry,
-the gyro, and AprilTags seen by the Pi cameras. You get it with
+Our competition code keeps track of the robot's current pose using
+wheel odometry (as in [Where am I?](13_LOCALIZATION.md)), the gyro,
+and AprilTags seen by the Pi cameras (you'll get to those in
+[Part 5](../part5/23_VISION.md)). You get it with
 `machinery.m_drive.getState().pose()`.
 
 ### Transform: move relative to me
@@ -463,4 +465,4 @@ TrajectorySE2 back(Pose2d p) {
 Before you use this, explain to someone what every line does.
 </details>
 
-Next: [🏆 Park on the X](21_PARK_ON_THE_X.md)
+Next: [🏆 Park on the X](15_PARK_ON_THE_X.md)

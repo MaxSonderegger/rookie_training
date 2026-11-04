@@ -7,7 +7,7 @@ into "the robot is *here* on the field".
 ## The big picture
 
 ```
-camera ──frames──▶ Raspberry Pi ──"I see tag 7, there"──▶ RoboRIO
+camera ──frames──▶ Raspberry Pi ──"I see tag 7, there"──▶ SystemCore
                    (finds AprilTags)    (over the network)   (works out
                                                               where the
                                                               robot is)
@@ -22,11 +22,13 @@ camera ──frames──▶ Raspberry Pi ──"I see tag 7, there"──▶ Ro
 1. The Pi sends that over the network to the robot.
 1. The robot code knows where every tag is on the field, and where each
    camera is on the robot, so it can work out **where the robot is**.
-   That's the next chapter: [Where am I?](../part4/19_LOCALIZATION.md)
+   Then it uses that to fix the drift you measured in
+   [Where am I?](../part3/13_LOCALIZATION.md). You'll put it to work in
+   [Park on the X, from anywhere](27_PARK_FROM_ANYWHERE.md).
 
 We wrote our own vision code instead of using a ready-made product, so
 that you can understand it and change it. The team's
-[Raspberry Pi docs](https://github.com/Team100/all26/blob/main/raspberry_pi/doc/README.md)
+[Raspberry Pi docs](https://github.com/Team100/all26/blob/2027/raspberry_pi/doc/README.md)
 explain why.
 
 ## AprilTags: a barcode with a direction
@@ -46,13 +48,13 @@ it's tilted.
 * **Lenses bend pictures.** Straight lines near the edge of a camera
   image look curved. The Pi has to un-bend (**undistort**) the image
   math before it can measure accurately. See
-  [distortion](https://github.com/Team100/all26/blob/main/raspberry_pi/doc/distortion.md).
+  [distortion](https://github.com/Team100/all26/blob/2027/raspberry_pi/doc/distortion.md).
 * **Pictures are always a little old.** By the time the Pi has taken a
   picture, found the tags, and sent the answer, the robot has moved on,
   by about a tenth of a second. So the Pi and the robot keep their
   **clocks in sync**, and every answer says *when* the picture was
   taken. See the
-  [sync protocol](https://github.com/Team100/all26/blob/main/lib/src/main/java/org/team100/lib/network/SYNC.md).
+  [sync protocol](https://github.com/Team100/all26/blob/2027/lib/src/main/java/org/team100/lib/network/SYNC.md).
 
 > **Check yourself:** a robot driving at 3 m/s gets a vision answer
 > that's 0.1 s old. How far has the robot moved since the picture was
@@ -60,10 +62,10 @@ it's tilted.
 
 ## Exercise: see what the Pi sees
 
-1. Follow [Change the Pi code](14_PI_CHANGES.md#3-test-on-your-laptop-first)
+1. Follow [Change the Pi code](22_PI_CHANGES.md#3-test-on-your-laptop-first)
    to run the vision code on your **laptop** with the fake camera.
 1. Read the
-   [code walkthrough](https://github.com/Team100/all26/blob/main/raspberry_pi/doc/walkthrough.md).
+   [code walkthrough](https://github.com/Team100/all26/blob/2027/raspberry_pi/doc/walkthrough.md).
    Find where a frame comes in, where tags are found, and where the
    result is sent.
 1. On a real Pi, hold a tag in front of the camera, and look at the
@@ -77,4 +79,4 @@ tags found, result out), and show a tag being detected live.
 > to find the Pi dashboard, and which NetworkTables values to look at in
 > Glass.
 
-Next: [Set up a new camera](16_NEW_CAMERA.md)
+Next: [Set up a new camera](24_NEW_CAMERA.md)

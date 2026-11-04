@@ -1,17 +1,17 @@
 # Switch to the SystemCore
 
-In Parts 1 to 4 you learned motors, real robots, vision, and auton on a
-**RoboRIO**. The competition robot runs on the new
-[SystemCore](https://docs.wpilib.org/en/2027/) controller, so Part 5
-moves everything over to it. Most of what you know carries over. This
+In Parts 1 to 3 you learned motors, real robots, localization, and
+auton on a **RoboRIO**. The competition robot runs on the new
+[SystemCore](https://docs.wpilib.org/en/2027/) controller, so Part 4
+moves everything over to it, and the rest of the guide stays there. Most of what you know carries over. This
 page covers what's different, gets your laptop and fork ready, and moves
 your motor study to the SystemCore. Then you'll
-[put it all together on the demo bot](25_DEMO_BOT_SYSTEMCORE.md).
+[put it all together on the demo bot](19_DEMO_BOT_SYSTEMCORE.md).
 
 ## What changes
 
-* **New controller.** The SystemCore replaces the RoboRIO. You can `ssh`
-  into it just like a Raspberry Pi.
+* **New controller.** The SystemCore replaces the RoboRIO. It's a small
+  Linux computer you can log in to with `ssh`.
 * **New branch.** SystemCore code lives on the **`2027`** branch of
   `Team100/all26`. You've been on `main` until now. From here on, every
   link, branch, and PR in this guide uses `2027`.
@@ -31,7 +31,7 @@ like this:
 | Robot address `10.1.0.2` | Still `10.1.0.2` on the robot network |
 | ssh user `lvuser` / `admin` | ssh user `systemcore`, password `systemcore` |
 | Deploy folder `/home/lvuser/deploy` | `/home/systemcore/deploy` |
-| Serial number in the console | See [Robot identity](24_IDENTITY.md) |
+| Serial number in the console | See [Robot identity](18_IDENTITY.md) |
 | One CAN bus | Five CAN ports, `can_s0` … `can_s4`; in code, `new CanBusId(0)` … |
 | `edu.wpi.first.…` packages | `org.wpilib.…` packages |
 | "2026 WPILib VS Code" | "2027 WPILib VS Code" |
@@ -80,7 +80,7 @@ Open `studies/discus` in **2027 WPILib VS Code** and build it.
    it up. Wait for its screen to show that it has booted.
 1. Connect your laptop to the SystemCore with a **USB-C** cable.
    * You can also use Ethernet through the radio or a switch; see
-     [SSH and checks](../part3/13_SSH_AND_CHECKS.md#connect-your-laptop).
+     [Connect to the robot](17_ROBOT_NETWORK.md).
 
    > 📷 **TODO photo:** `docs/img/systemcore_usb_c.jpg`: the SystemCore
    > USB-C port with the cable plugged in.
@@ -101,8 +101,7 @@ Open `studies/discus` in **2027 WPILib VS Code** and build it.
    > SystemCore one.
 
 If it fails: check the cable, wait for the SystemCore to finish booting,
-and try `ping robot.local`. More in
-[SSH and checks](../part3/13_SSH_AND_CHECKS.md#common-problems).
+and try `ping robot.local` (on a Mac, `ping -c 4 robot.local`).
 
 **Checkpoint:** Communications and Robot Code are both green in the
 Driver Station.
@@ -167,8 +166,11 @@ Send it in as a PR against **`2027`**.
 
 ## 6. SSH into the SystemCore
 
-Same idea as [SSH into the RoboRIO](../part3/13_SSH_AND_CHECKS.md), with a
-different login and different things to check.
+The SystemCore is a small Linux computer. When something on the robot
+isn't working, the fastest way to find out why is to **log in and
+look**. `ssh` ("secure shell") lets you type commands on it from your
+laptop. It's built into Windows, Mac, and Linux; on Windows, open
+**Command Prompt** or **PowerShell**.
 
 ```
 ssh systemcore@robot.local
@@ -185,7 +187,6 @@ it,** because deploys from VS Code stop working if you do.
 | Which SystemCore is this? | `cat /sys/firmware/devicetree/base/serial-number; echo` | A serial that matches an entry in [Identity.java](https://github.com/Team100/all26/blob/main/lib/src/main/java/org/team100/lib/config/Identity.java) |
 | What are its addresses? | `ip -brief addr` | `10.1.0.2` on the Ethernet interface |
 | Can it see the radio? | `ping -c 3 10.1.0.1` | 3 replies |
-| Can it see the cameras? | `ping -c 3 10.1.0.31` (each Pi) | 3 replies |
 | Are the CAN buses up? | `ip -brief link \| grep can` | `can_s0` … `can_s4` say `UP` |
 | Is CAN traffic flowing? | `ip -s link show can_s0` | RX packets going up when run twice; few errors |
 | Is our code deployed? | `ls -l /home/systemcore/deploy` | Files with a recent date |
@@ -198,4 +199,21 @@ Robot program output (prints, stack traces) is easiest to read in the
 
 Type `exit` to log out.
 
-Next: [Connect to the robot (radios)](23_ROBOT_NETWORK.md)
+### Common problems
+
+* **`ping` fails:** `ssh` will fail too. Fix the cable and the laptop's
+  network first ([Connect to the robot](17_ROBOT_NETWORK.md#troubleshooting)).
+* **`REMOTE HOST IDENTIFICATION HAS CHANGED`:** the SystemCore was
+  reimaged, or a different device now has that address. Clear the old
+  key and try again: `ssh-keygen -R robot.local` (or the address you
+  used).
+* **`Connection refused`:** it's still booting. Wait 30 seconds.
+* **`Permission denied`:** wrong user or password. It's
+  `systemcore@`, password `systemcore`.
+* **`robot.local` not found:** name lookup doesn't always work. Use
+  the IP address instead.
+
+**Look, don't change.** Don't edit files on the SystemCore by hand. The
+next deploy overwrites them, and nobody else will know what you did.
+
+Next: [Connect to the robot (radios)](17_ROBOT_NETWORK.md)

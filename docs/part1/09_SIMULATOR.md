@@ -46,7 +46,7 @@ breakpoint. Check the terminal. More about the field widget is
 1. `W A S D` move the robot (axes 0 and 1). `E R` rotate it (axis 2).
 
 > **Check yourself:** which way does the robot move when you press `W`?
-> Is that +x on the field? (See [Auton](../part4/20_AUTON.md#pose-where-am-i).)
+> Is that +x on the field? (See [Auton](../part3/14_AUTON.md#pose-where-am-i).)
 
 ## Run an auton
 

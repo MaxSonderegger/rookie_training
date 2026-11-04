@@ -29,7 +29,7 @@ camera:
 model with the same lens: the lens never sits exactly centered over the
 sensor. Our code has calibrated numbers for each camera we use, and they
 really do differ. Here's what the difference means at the
-[Vision Shooter Challenge](18_VISION_SHOOTER_CHALLENGE.md) distance:
+[Vision Shooter Challenge](26_VISION_SHOOTER_CHALLENGE.md) distance:
 
 * The **center** of the picture is off by about **20 pixels** between
   two of our cameras.
@@ -39,7 +39,7 @@ really do differ. Here's what the difference means at the
   difference between the ball landing in the bucket and hitting its rim.
 
 The same mistake makes the robot think it's **somewhere it isn't**
-([Where am I?](../part4/19_LOCALIZATION.md)), which ruins auton.
+([Where am I?](../part3/13_LOCALIZATION.md)), which ruins auton.
 
 > **Check yourself:** with that 1.2° error, how far off would the robot
 > be about a tag that's 2 m away? 5 m away? Why does calibration matter
@@ -51,9 +51,9 @@ The same mistake makes the robot think it's **somewhere it isn't**
    which Pi it goes with. Our calibration numbers belong to the camera
    **plugged into a particular Pi**, so if cameras get swapped between
    Pis, the numbers are silently wrong.
-1. Set up the Pi ([pi_setup.md](https://github.com/Team100/all26/blob/main/raspberry_pi/doc/pi_setup.md)),
+1. Set up the Pi ([pi_setup.md](https://github.com/Team100/all26/blob/2027/raspberry_pi/doc/pi_setup.md)),
    and add it to the identity list
-   ([how](14_PI_CHANGES.md#2-make-your-change)), with a mentor.
+   ([how](22_PI_CHANGES.md#2-make-your-change)), with a mentor.
 1. Deploy, and look at the app's output (`app.stdout` on the `:9001`
    page). Find this:
 
@@ -177,4 +177,4 @@ Now tell the robot where its new camera is.
 | Move the camera to a different Pi, or swap cameras between Pis | **Yes**, or move its numbers to match |
 | Move the camera on the robot | No, but redo **extrinsics** (Step 6) |
 
-Next: [Break the cameras (on purpose)](17_BREAK_THE_CAMERAS.md)
+Next: [Break the cameras (on purpose)](25_BREAK_THE_CAMERAS.md)

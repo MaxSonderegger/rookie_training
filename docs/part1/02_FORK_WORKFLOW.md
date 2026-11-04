@@ -9,7 +9,7 @@ Do this loop for every change, big or small:
 1. Open a pull request
 
 > **Which branch?** In Part 1 of this guide (RoboRIO and motors) you
-> work on **`main`**. Once you [switch to the SystemCore](../part5/22_SYSTEMCORE.md),
+> work on **`main`**. Once you [switch to the SystemCore](../part4/16_SYSTEMCORE.md),
 > use **`2027`** everywhere this page says `main`.
 
 ## 1. Sync your fork
@@ -46,7 +46,7 @@ Edit the code, then build and test.
 
 * Java: WPILib icon → **Build Robot Code**, or **Test Robot Code**
   > 🖥️ **Advanced:** in a terminal, run `./gradlew build` ([how](01_SETUP.md#advanced-run-commands-from-a-terminal)).
-* Python (Pi): see [Pi changes](../part3/14_PI_CHANGES.md)
+* Python (Pi): see [Pi changes](../part5/22_PI_CHANGES.md)
 
 ## 4. Commit and push
 

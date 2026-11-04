@@ -15,12 +15,13 @@ Guidelines:
   appears.
 * **Layout.** Chapters live in `docs/`, numbered in reading order:
   * `docs/part1/` (basics), `docs/part2/` (real robots: Discus, shooter
-    bot), `docs/part3/` (Pis and vision), `docs/part4/` (localization
-    and auton): all for the **RoboRIO**, `all26` branch `main`, 2026
-    WPILib.
-  * `docs/part5/` (SystemCore), `docs/part6/` (object detection),
-    `docs/part7/` (final challenge): the **SystemCore**, branch
-    `2027`, 2027 WPILib.
+    bot), `docs/part3/` (localization and auton): all for the
+    **RoboRIO**, `all26` branch `main`, 2026 WPILib.
+  * `docs/part4/` (SystemCore), `docs/part5/` (Pis and vision),
+    `docs/part6/` (object detection), `docs/part7/` (final challenge):
+    the **SystemCore**, branch `2027`, 2027 WPILib.
+  * Part 3 deliberately uses **wheels only** (odometry). Cameras and
+    AprilTags come in Part 5, so don't make Parts 3 or 4 depend on them.
   * `docs/reference/`: debugging and troubleshooting.
   * Every chapter gets its own number (no `05a`-style suffixes);
     companion pages that aren't read in order (like `BREAKER_CARDS.md`)
@@ -40,8 +41,8 @@ Guidelines:
   instead of copying code that may change. Mark anything unverified
   with `TODO`.
 * **Links** into the robot code use full GitHub URLs
-  (`https://github.com/Team100/all26/blob/main/...` in Parts 1 to 4,
-  `.../blob/2027/...` in Parts 5 to 7), since this is a separate repo.
+  (`https://github.com/Team100/all26/blob/main/...` in Parts 1 to 3,
+  `.../blob/2027/...` in Parts 4 to 7), since this is a separate repo.
 * **No secrets.** This repo may be public. Don't write radio WPA keys or
   other team passwords here; say "ask a mentor". Vendor-default
   passwords that are already public (SystemCore, Pi) are fine.
