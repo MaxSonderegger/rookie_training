@@ -54,6 +54,14 @@ motor. Use a **low current limit** to start.
 You've done this before: [Your first study](../part1/07_STUDY.md), then
 Step 3 of [Control a motor from code](../part1/08_MOTOR_CODE.md#step-3-create-the-motor).
 
+> [!WARNING]
+> **Make a new study; don't import `studies/discus`.** That's the
+> team's Discus code (the answer key, so don't peek!). VS Code's
+> **WPILib: Import a WPILib project** copies a project to a new folder
+> with a new `build.gradle`, and the copy can't find `lib`. If you get
+> `lib` errors, see
+> [`lib` not found?](../part1/07_STUDY.md#lib-not-found)
+
 **Checkpoint:** it builds, deploys, and prints your "motor created"
 messages.
 

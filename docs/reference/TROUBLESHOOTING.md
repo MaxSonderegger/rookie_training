@@ -34,7 +34,10 @@
   Language Server Workspace**, and restart.
 
 **Can't find `org.team100.lib...`**
-: Your study doesn't include `lib` yet. See [Study](../part1/07_STUDY.md#include-the-lib-directory).
+: Your study doesn't include `lib` yet, or it can't find it. See
+  [`lib` not found?](../part1/07_STUDY.md#lib-not-found): most often the
+  study isn't in `all26/studies/`, or it was imported instead of
+  created.
 
 ## Deploying and running
 
