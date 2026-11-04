@@ -205,10 +205,11 @@ here's the quick version.
    > 📷 **TODO screenshot:** what a healthy Kraken looks like in Tuner X.
 
 1. **Check the power.** Open the Kraken's page. Its supply voltage
-   should be about 12 V.
+   should be about 12 V.<img width="299" height="368" alt="Screenshot 2026-11-04 151544" src="https://github.com/user-attachments/assets/6bb85881-2a44-42ec-a265-6ca2bee9c0ad" />
+<img width="299" height="368" alt="Screenshot 2026-11-04 151544" src="https://github.com/user-attachments/assets/42abb2b2-6f67-4f1e-82a7-4f6524c227a5" />
 
-   > 📷 **TODO screenshot:** `docs/img/tunerx_kraken_plot.png`: Tuner X
-   > showing the Kraken's supply voltage.
+
+<img width="1230" height="611" alt="Screenshot 2026-11-04 145119" src="https://github.com/user-attachments/assets/66d183d2-ecdc-4343-b6d4-627ab4370077" />
 
 1. **Write down the CAN ID.** You can change it here if it clashes with
    another device. Also write it on masking tape on the motor.
@@ -280,9 +281,10 @@ Kraken, but not run it. So first, put some code on the RoboRIO.
 
 1. **Deploy robot code that uses a CTRE motor.** Use
    [`test/single_roller`](https://github.com/Team100/all26/tree/main/test/single_roller):
-   open it in 2026 WPILib VS Code and **Deploy Robot Code**
+   open it in 2026 WPILib VS Code by opening the test folder, clicking single_roller, then src, java, and finally, main. Then, **Deploy Robot Code**
    ([how](04_DEPLOY.md)). It doesn't move anything by itself, and it
    starts the diagnostic server for you.
+<img width="299" height="368" alt="Screenshot 2026-11-04 151544" src="https://github.com/user-attachments/assets/270c88d2-4621-4973-a2ef-1cc05390c40c" />
 
    > 🖥️ **Advanced:** in a terminal, run `./gradlew deploy` ([how]( in `test/single_roller`01_SETUP.md#advanced-run-commands-from-a-terminal)).
 1. Open the **FRC Driver Station** (team number **100**). **Communications**
