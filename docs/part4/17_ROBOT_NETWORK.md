@@ -55,6 +55,33 @@ Laptop ──Ethernet──▶ Access point (VH-109, "Access Point Mode", on the
 
 If any step fails, go to [Troubleshooting](#troubleshooting) below.
 
+### Or: connect over Wi-Fi (2.4 GHz backup)
+
+If the robot radio has its **2.4 GHz** network turned on (see
+[Robot radio settings](#2-robot-radio-settings)), your laptop can join
+it over Wi-Fi, with no access point and no cable. Handy for bench tests
+and for following a robot around the floor.
+
+1. On your laptop's Wi-Fi list, find **`100_<SSID suffix>`**: our team
+   number and the robot's name, e.g. **`100_Gamma`**. The suffix is
+   written on masking tape on the radio.
+1. Join it. **Ask a mentor for the password**; it isn't written down
+   here, because this guide is public.
+1. Check with `ping 10.1.0.1` (the radio) and `ping robot.local` (the
+   robot), then open the Driver Station.
+
+Good to know:
+
+* **It turns itself off** once the robot radio links to an access
+  point. If you can't see it, someone may have the access point on.
+* It's slower and less reliable than the 6 GHz link. Fine for testing;
+  don't trust it for a full-speed driving demo.
+* It's for practice only. Competitions don't allow it.
+* While you're on it, your laptop has no internet.
+
+> **TODO (mentors):** which robot or radio is `100_Gamma`, and whether
+> the other robots' radios have 2.4 GHz turned on.
+
 **No radios at all?** Plug a USB-C cable from the laptop into the
 SystemCore (see [Deploy to a SystemCore](16_SYSTEMCORE.md#3-deploy-to-a-systemcore)). That's enough to deploy
 and drive, as long as the robot is on blocks or tethered.

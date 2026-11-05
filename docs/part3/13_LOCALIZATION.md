@@ -107,8 +107,10 @@ starts. To zero it, click **Restart Robot Code** in the Driver Station
 > keep a finger on **Enter** (disable).
 
 > **TODO (mentors):** the floor experiments need the laptop to follow
-> the robot. A long USB cable works; or, set up a radio. Say which one we
-> use, and which floor (carpet or smooth).
+> the robot. A long USB cable works; or join the radio's 2.4 GHz Wi-Fi
+> ([how](../part4/17_ROBOT_NETWORK.md#or-connect-over-wi-fi-24-ghz-backup)),
+> if the demo bot has a radio. Say which one we use, and which floor
+> (carpet or smooth).
 
 For every experiment: **predict first**, write it down, *then* try it.
 

@@ -96,9 +96,10 @@ represents your motor" still applies.)
 <details>
 <summary>Hint 2: new arguments</summary>
 
-The SPARK motor classes need a couple of extra arguments that the
-Kraken class didn't. Read their comments. If you're not sure, `0` is a
-safe starting value; ask a mentor what they do.
+The SPARK motor classes need two extra arguments at the end that the
+Kraken class didn't: `averageDepth` and `measurementPeriod`. They control
+how the SPARK works out the motor's **speed**. `0` means "use REV's
+default", which is fine for now. You'll come back to them in Step 5.
 </details>
 
 ## Step 3: Spin one drum
@@ -106,7 +107,38 @@ safe starting value; ask a mentor what they do.
 **Goal:** while you hold the **right bumper**, **one** shooter drum
 spins at **10%**. Let go, and it stops.
 
+Robot **on blocks**, safety glasses on, no balls anywhere near it.
+
 **Checkpoint:** you know which drum it is, and which way it spins.
+
+<details>
+<summary>Hint 1: reading the bumper</summary>
+
+You made a `DriverXboxControl` in
+[Drive it with an Xbox controller](../part1/08_MOTOR_CODE.md#step-7-drive-it-with-an-xbox-controller).
+It has one method for each button. Find the one for the right bumper.
+What type does it return? Why that type, and not a `double` like the
+sticks?
+</details>
+
+<details>
+<summary>Hint 2: "while you hold it"</summary>
+
+`teleopPeriodic()` runs 50 times a second. So each time, ask: "is the
+bumper pressed **right now**?" If yes, set the duty cycle to 0.1.
+Otherwise... what?
+
+> **Check yourself:** what happens if you forget the "otherwise" part,
+> and you let go of the bumper?
+</details>
+
+<details>
+<summary>Hint 3: which drum is it?</summary>
+
+Put a strip of masking tape on each drum, so you can see it turning.
+Then write the drum (top or bottom), its CAN ID, and its direction on
+your Step 1 table.
+</details>
 
 ## Step 4: Spin both drums the right way
 
@@ -120,10 +152,32 @@ at the same power, never above **0.2**.
 goes near the robot.
 
 <details>
-<summary>Hint</summary>
+<summary>Hint 1: flipping one motor</summary>
 
 You don't have to send one motor a negative number. One of the
 motor's constructor arguments says which way is "forward".
+</details>
+
+<details>
+<summary>Hint 2: which way is "right"?</summary>
+
+Look at the drums from the **side**, and find the **gap** between them,
+where the ball goes through. At the gap, both drum surfaces must move
+the same way: **out of the front** of the robot. Draw it with arrows
+before you change any code. Then check with the tape strips from Step 3,
+at 10% power, before you go any faster.
+</details>
+
+<details>
+<summary>Hint 3: making the 0.2 cap impossible to break</summary>
+
+Don't type `0.2` all over your code. Make **one** constant with a clear
+name, and make sure every number you send the drums goes through a
+check against it first. Look up `Math.min`, or WPILib's
+`MathUtil.clamp`.
+
+> **Check yourself:** later, someone changes your 0.1 to 0.5 by
+> mistake. What does your code send the drums?
 </details>
 
 ## Step 5: Know when the drums are ready
@@ -143,11 +197,42 @@ does spin-up take?
 > ([Step 2](../part1/08_MOTOR_CODE.md#step-2-keep-the-library-ticking)).
 
 <details>
-<summary>Hint</summary>
+<summary>Hint 1: reading the speed</summary>
 
-Measure each drum's speed like you did on the Discus. Pick a target a
-bit below the speed they reach at your power, so "ready" happens a
-moment before they level off.
+Measure each drum's speed like you did on the Discus: `encoder()` gives
+you the motor's speed in radians per second. Pick a target a bit below
+the speed they reach at your power, so "ready" happens a moment before
+they level off.
+</details>
+
+<details>
+<summary>Hint 2: "both" drums</summary>
+
+"Ready" is true only if drum 1 is fast enough **and** drum 2 is fast
+enough. Look up Java's `&&`. Make it a method, like `boolean ready()`,
+so Step 6 can ask it.
+</details>
+
+<details>
+<summary>Hint 3: meters per second, not radians</summary>
+
+What matters for the ball is how fast the drum's **surface** moves. Measure the
+drum's diameter with a ruler. Surface speed (m/s) = speed (rad/s) ×
+radius (m). Does that match how fast the ball comes out?
+</details>
+
+<details>
+<summary>Hint 4: the graph looks late</summary>
+
+Look closely at your spin-up graph. Does the speed line rise **after**
+you can hear the drums speed up? The SPARK works out speed by averaging
+over a stretch of time, and REV's default is long, so the reading lags
+behind the real drum. That's what the `averageDepth` and
+`measurementPeriod` arguments from Step 2 control.
+
+With a mentor, try smaller values (read the comments in `lib`'s
+`RevConfigurator` for the allowed range), and graph the spin-up again.
+What do you gain? What gets worse? (Look at how smooth the line is.)
 </details>
 
 ## Step 6: Feed one ball
@@ -169,13 +254,39 @@ ready again → … Then turn each line into code.
 </details>
 
 <details>
-<summary>Hint 2: commands</summary>
+<summary>Hint 2: first, the indexer on its own</summary>
 
-This is exactly what WPILib **commands** are for: small actions you can
-put "in sequence", "in parallel", "until something is true", and
-"repeatedly". Read
+Before you combine anything: with **no balls** in the robot, make **X**
+spin just the indexer at a low power while you hold it. Which way does it
+push a ball: toward the drums, or back out? Fix that the same way as in
+Step 4.
+</details>
+
+<details>
+<summary>Hint 3: "for a short time" needs a clock</summary>
+
+To feed "for 0.2 seconds", remember **when** you started feeding, and
+each cycle compare that with the time now. WPILib's `Timer` class can
+tell you the time. Too short, and the ball doesn't make it in. Too
+long, and a second ball follows it. Try a few times, and watch.
+</details>
+
+<details>
+<summary>Hint 4: one way to write it</summary>
+
+Keep a variable that says what the shooter is doing **right now**:
+"spinning up", "feeding", or "recovering". Each cycle, look at it, and
+decide whether to move on to the next one. Draw it as boxes and arrows
+first: what makes you go from each box to the next?
+
+Or use **commands**. This is exactly what they're for: small actions
+you can put "in sequence", "in parallel", "until something is true",
+and "repeatedly". Read
 [WPILib: command compositions](https://docs.wpilib.org/en/stable/docs/software/commandbased/command-compositions.html).
 </details>
+
+> **Check yourself:** you let go of **B** in the middle of feeding a
+> ball. What does your code do? What **should** it do?
 
 > **Check yourself:** what happens to the drums' speed at the moment a
 > ball goes through? Look at your Glass graph. Why?
