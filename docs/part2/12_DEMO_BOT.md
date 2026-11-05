@@ -85,10 +85,45 @@ If it doesn't work:
   Slack.
 
 > Tested 2026-11-04 from a Mac: on `100_Gamma`, the radio, the RoboRIO
-> (by address and by name), the deploy port, and NetworkTables all
-> answered, in about 7 ms.
+> (by address and by name), the deploy port, NetworkTables, and
+> `ssh admin@10.1.0.2` all worked, in about 4–7 ms.
 >
 > **TODO (mentors):** which demo bot ("A" or "B") `100_Gamma` is on.
+
+### Log in to the RoboRIO (ssh)
+
+Once you're connected (either way), you can log in to the RoboRIO and
+look around. `ssh` is built into Windows (Command Prompt or PowerShell)
+and Mac (Terminal).
+
+```
+ssh admin@10.1.0.2
+```
+
+* The password is **blank**: just press **Enter**. (It prints "Log in
+  with your NI-Auth credentials"; ignore that.)
+* The first time, type `yes` to trust it.
+* `ssh admin@roboRIO-100-FRC.local` works too. Over USB, use
+  `ssh admin@172.22.11.2`.
+* Type `exit` to log out.
+
+Things to check:
+
+| Question | Command | Good answer |
+| --- | --- | --- |
+| How long since it rebooted? | `uptime` | Rebooting by itself means a power problem |
+| Is the disk full? | `df -h /` | `Use%` well under 90% |
+| Is code deployed? | `ls -l /home/lvuser/deploy` | Files from your study, with a recent date |
+
+**Look, don't change:** don't edit files on the RoboRIO by hand. Change
+your code and deploy it.
+
+| If ssh says | It means |
+| --- | --- |
+| `Connection timed out` | You're not on the robot's network. Try `ping 10.1.0.2` |
+| `Connection refused` | Wrong address (`10.1.0.1` is the radio, not the RoboRIO), or it's still starting: wait a minute |
+| `REMOTE HOST IDENTIFICATION HAS CHANGED` | Normal for us. Run `ssh-keygen -R 10.1.0.2`, then try again |
+| `Permission denied` | Wrong user. It's `admin@` |
 
 ### Whichever way you connect
 
