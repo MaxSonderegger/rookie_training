@@ -84,8 +84,11 @@ If it doesn't work:
   normal. Switch back to the school Wi-Fi to push to GitHub or use
   Slack.
 
-> **TODO (mentors):** confirm `100_Gamma` is the demo bot's radio (or
-> which demo bot, "A" or "B"), and that it's set up for a RoboRIO.
+> Tested 2026-11-04 from a Mac: on `100_Gamma`, the radio, the RoboRIO
+> (by address and by name), the deploy port, and NetworkTables all
+> answered, in about 7 ms.
+>
+> **TODO (mentors):** which demo bot ("A" or "B") `100_Gamma` is on.
 
 ### Whichever way you connect
 
