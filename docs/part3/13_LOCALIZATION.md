@@ -74,8 +74,8 @@ Experiment 5.
 1. **Deploy the team's demo bot code.** Open
    [`studies/demo_bot`](https://github.com/Team100/all26/tree/main/studies/demo_bot)
    from your fork, on `main`, in **2026** WPILib VS Code, and deploy it
-   over USB, as in [hard mode](../part2/12_DEMO_BOT.md). It already has
-   driving and odometry built in.
+   ([connect over USB or the `100_Gamma` Wi-Fi](../part2/12_DEMO_BOT.md#connect-to-the-demo-bot)).
+   It already has driving and odometry built in.
 1. **Connect Glass** to the robot
    ([how](../part2/10_GLASS_POWER.md#open-glass-and-connect)).
 1. **Open the field view:** **NetworkTables → field**. The little robot
@@ -106,11 +106,11 @@ starts. To zero it, click **Restart Robot Code** in the Driver Station
 > For the floor experiments, clear the area, say **"Enabling!"**, and
 > keep a finger on **Enter** (disable).
 
-> **TODO (mentors):** the floor experiments need the laptop to follow
-> the robot. A long USB cable works; or join the radio's 2.4 GHz Wi-Fi
-> ([how](../part4/17_ROBOT_NETWORK.md#or-connect-over-wi-fi-24-ghz-backup)),
-> if the demo bot has a radio. Say which one we use, and which floor
-> (carpet or smooth).
+**For the floor experiments, use Wi-Fi** (`100_Gamma`,
+[how](../part2/12_DEMO_BOT.md#b-wi-fi-100_gamma)), so no cable follows
+the robot around.
+
+> **TODO (mentors):** which floor to use (carpet or smooth).
 
 For every experiment: **predict first**, write it down, *then* try it.
 

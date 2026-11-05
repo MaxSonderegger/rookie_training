@@ -34,13 +34,64 @@ rule is a top speed of about **20 m/s**, because faster than that, a
 foam ball carries enough energy to injure an eye. Keeping the shooter at
 low power keeps the ball well under that.
 
-> **Connecting:** plug a **USB-B cable** straight from your laptop into
-> the demo bot's RoboRIO, just like the test board in
-> [Deploy](../part1/04_DEPLOY.md). No radios needed: those come in
-> [Part 4](../part4/17_ROBOT_NETWORK.md), on the real robot.
+## Connect to the demo bot
 
-Keep the robot **on blocks** (wheels off the floor) while it's tethered:
-you're testing the shooter, not driving.
+Two ways. Both work for deploying and for the Driver Station.
+
+### A: USB cable
+
+Plug a **USB-B cable** straight from your laptop into the demo bot's
+RoboRIO, just like the test board in [Deploy](../part1/04_DEPLOY.md).
+
+### B: Wi-Fi (`100_Gamma`)
+
+The demo bot's radio has its own Wi-Fi network, so you don't need a
+cable.
+
+1. **Turn the robot on**, and wait about a minute for the radio to
+   start.
+1. **Join the Wi-Fi network `100_Gamma`** from your laptop's Wi-Fi list
+   (Windows: the Wi-Fi icon by the clock; Mac: the Wi-Fi icon in the menu
+   bar). **Ask a mentor for the password**; it isn't written here,
+   because this guide is public.
+1. **Check you can reach the robot.** In a terminal (Windows: Command
+   Prompt; Mac: Terminal):
+   ```
+   ping 10.1.0.1
+   ping 10.1.0.2
+   ```
+   (on a Mac, `ping -c 4 …`). `10.1.0.1` is the radio; `10.1.0.2` is the
+   RoboRIO. Both should answer.
+1. **Deploy your code** the usual way: `Ctrl+Shift+P` → **WPILib:
+   Deploy Robot Code**. WPILib finds the robot over Wi-Fi by itself,
+   because the team number is `100`.
+1. **Open the Driver Station** (Windows only), team `100`.
+   **Communications** and **Robot Code** should go green.
+1. **Glass** connects the same way: **Team** → **100**
+   ([how](10_GLASS_POWER.md#open-glass-and-connect)).
+
+If it doesn't work:
+
+* **`100_Gamma` isn't in the list:** the robot is off, still starting,
+  or its radio is linked to an access point, which turns this Wi-Fi off.
+  Ask a mentor.
+* **Joined, but `ping 10.1.0.2` fails:** wait 30 seconds; the RoboRIO
+  starts after the radio. Check its lights.
+* **Deploy can't find the robot:** check `ping 10.1.0.2` first. If ping
+  works, and the deploy still fails, see
+  [Deploy to the RoboRIO](../part1/04_DEPLOY.md#if-the-deploy-fails).
+* **Your laptop has no internet** while it's on `100_Gamma`. That's
+  normal. Switch back to the school Wi-Fi to push to GitHub or use
+  Slack.
+
+> **TODO (mentors):** confirm `100_Gamma` is the demo bot's radio (or
+> which demo bot, "A" or "B"), and that it's set up for a RoboRIO.
+
+### Whichever way you connect
+
+Keep the robot **on blocks** (wheels off the floor): you're testing the
+shooter, not driving. More about radios comes in
+[Part 4](../part4/17_ROBOT_NETWORK.md).
 
 ## Step 1: The motors and their CAN IDs
 

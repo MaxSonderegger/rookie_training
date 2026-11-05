@@ -79,6 +79,9 @@ Good to know:
 * It's for practice only. Competitions don't allow it.
 * While you're on it, your laptop has no internet.
 
+The step-by-step for the demo bot, including deploying, is in
+[Connect to the demo bot](../part2/12_DEMO_BOT.md#b-wi-fi-100_gamma).
+
 > **TODO (mentors):** which robot or radio is `100_Gamma`, and whether
 > the other robots' radios have 2.4 GHz turned on.
 
