@@ -81,29 +81,44 @@ and say its CAN ID.
 **Goal:** a new study, with `lib` included, that creates **both
 shooter drum motors** and the **indexer motor**. Low current limits.
 
+### The motor's arguments
+
+Each motor is a **`MinionSparkMotor`** (a Minion motor on a SPARK MAX),
+in `lib`'s `motor/rev` folder. Can't find it? Your study's `lib` isn't
+open: see [the FAQ](../reference/BUILD_ERRORS.md#opened-the-folder-instead-of-the-workspace).
+
+Its constructor takes ten arguments. The first eight are the same as the
+Kraken's in
+[Control a motor from code](../part1/08_MOTOR_CODE.md#step-3-create-the-motor);
+the last two are new. What each one means, and what to pass **for now**:
+
+| # | Argument | What it is | For now |
+| --- | --- | --- | --- |
+| 1 | `LoggerFactory parent` | Where this motor's logs go in Glass. Give each motor its **own name**, or their logs land on top of each other | `log.name("drum A")`, `log.name("drum B")`, `log.name("indexer")` |
+| 2 | `TotalCurrentLog currentLog` | Adds up the current used by every motor | the same one for all three, from `RobotLog`, as in Part 1 |
+| 3 | `CanId canId` | Which SPARK to talk to | from the [Step 1 table](#step-1-the-motors-and-their-can-ids): `new CanId(39)`, … |
+| 4 | `NeutralMode100 neutral` | What the motor does when you send it 0: **coast** (spins down freely) or **brake** (stops hard) | `COAST`. Braking heavy drums suddenly is hard on them |
+| 5 | `MotorPhase motorPhase` | Which way counts as "forward" | `FORWARD` for all three. [Step 4](#step-4-spin-both-drums-the-right-way) is about changing this |
+| 6 | `CurrentLimit limit` | The most current the motor may draw. Takes a **stator** and a **supply** number, but the SPARK only uses the **stator** one; nothing limits supply current here | `new CurrentLimit(10, 10)`: low, while you're testing |
+| 7 | `Friction friction` | A model of friction, for fancier control | all zeros: not used yet |
+| 8 | `PIDConstants pid` | Feedback control settings | `PIDConstants.zero()`: not used yet |
+| 9 | `int averageDepth` | **New.** How many speed readings the SPARK averages | `0` (REV's default) |
+| 10 | `int measurementPeriod` | **New.** Over how many milliseconds the SPARK measures each speed reading | `0` (REV's default) |
+
+About the last two: the SPARK works out speed by watching how far the
+motor turned over a stretch of time, and averaging. **Bigger numbers**
+give a smoother speed reading, but a **later** one; **smaller** numbers
+give a quicker but noisier one. `0` means "REV's default", which is fine
+until [Step 5](#step-5-know-when-the-drums-are-ready), where you'll see
+why it matters for a shooter.
+
+> **Check yourself:** why does the table say "for now" for almost every
+> row? Which ones will you change later in this chapter, and why?
+
+**Checkpoint:** before you build, you can say what every argument does.
+Then: it builds, deploys, and prints your "motors created" messages.
+
 **Build errors?** See the [Build errors FAQ](../reference/BUILD_ERRORS.md).
-
-**Checkpoint:** it builds, deploys, and prints your "motors created"
-messages.
-
-<details>
-<summary>Hint 1: which motor class?</summary>
-
-These motors are on REV SPARK controllers, so look in `lib`'s motor
-folder, in the `rev` part. The drums and indexer are **Minion** motors
-(see [Step 1](#step-1-the-motors-and-their-can-ids)). Pick the class
-for a Minion on a SPARK. ("Use the class that represents your motor"
-still applies.)
-</details>
-
-<details>
-<summary>Hint 2: new arguments</summary>
-
-The SPARK motor classes need two extra arguments at the end that the
-Kraken class didn't: `averageDepth` and `measurementPeriod`. They control
-how the SPARK works out the motor's **speed**. `0` means "use REV's
-default", which is fine for now. You'll come back to them in Step 5.
-</details>
 
 ## Step 3: Spin one drum
 
