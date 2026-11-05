@@ -42,37 +42,39 @@ low power keeps the ball well under that.
 Keep the robot **on blocks** (wheels off the floor) while it's tethered:
 you're testing the shooter, not driving.
 
-## Step 1: Find the motors (REV Hardware Client)
+## Step 1: The motors and their CAN IDs
 
-These motors use **REV SPARK** controllers, so **Phoenix Tuner X can't
-see them**. Use the **REV Hardware Client** instead.
+Every motor is on a **REV SPARK MAX** controller, and each SPARK has a
+**CAN ID**, the number your code uses to find it. These are the demo
+bot's:
 
-**Goal:** you know the CAN ID of each **shooter drum** motor and the
-**indexer** motor, and each one is written on masking tape.
+| Mechanism | CAN ID | Motor |
+| --- | --- | --- |
+| Shooter drum A | **39** | CTRE **Minion** |
+| Shooter drum B | **8** | CTRE **Minion** |
+| Indexer | **7** | CTRE **Minion** |
+| Pivot (tilts the shooter) | **5** | REV **NEO 550** |
+| Drive, left | **3** | REV **NEO 550** |
+| Drive, right | **2** | REV **NEO 550** |
 
-1. Find the REV Hardware Client on the laptop (Windows key, type "REV").
-   If it's not there, download it
-   [here](https://docs.revrobotics.com/rev-hardware-client).
+For this chapter you need the two **drums** and the **indexer**. Leave
+the pivot and the drive alone. Which drum is "A"? You'll find out in
+Step 3.
 
-   ![](../img/rev_hardware_client.png)
+> [!IMPORTANT]
+> **‼️ If these CAN IDs don't work, you may need to find them using the
+> instructions in
+> [Appendix: find the CAN IDs yourself](#appendix-find-the-can-ids-yourself).**
+> Signs they're wrong: a motor doesn't move when your code tells it to,
+> the wrong motor moves, or the Driver Station console shows errors
+> about a SPARK with that ID. Someone may have rewired the robot, or
+> you may be on a different demo bot.
 
-1. Plug a USB-C cable from the laptop straight into one **SPARK**, and
-   click **Refresh**.
+> **TODO (mentors):** check this table on both demo bots ("A" and
+> "B"), and put the CAN ID on masking tape on each SPARK.
 
-   ![](../img/rev_hardware_client_working.png)
-
-1. The **CAN Bus** tab should say "Bus OK", and **CAN Data** should
-   show messages flowing.
-
-   ![](../img/can_bus_flowing.png)
-
-1. Write down its CAN ID. To find out which motor this SPARK drives,
-   spin it slowly from the client's run tab and watch.
-
-> 📷 **TODO photo:** `docs/img/demo_bot_spark_usb.jpg`: a USB-C cable
-> plugged into one of the demo bot's SPARKs.
-
-**Checkpoint:** a table of motor → CAN ID, checked with a mentor.
+**Checkpoint:** you can point to each of the three motors on the robot,
+and say its CAN ID.
 
 ## Step 2: Your shooter study
 
@@ -87,10 +89,11 @@ messages.
 <details>
 <summary>Hint 1: which motor class?</summary>
 
-These are REV motors on SPARK controllers, so look in `lib`'s motor
-folder, in the `rev` part. Ask a mentor which **motor** each SPARK is
-driving, and pick the class that matches it. ("Use the class that
-represents your motor" still applies.)
+These motors are on REV SPARK controllers, so look in `lib`'s motor
+folder, in the `rev` part. The drums and indexer are **Minion** motors
+(see [Step 1](#step-1-the-motors-and-their-can-ids)). Pick the class
+for a Minion on a SPARK. ("Use the class that represents your motor"
+still applies.)
 </details>
 
 <details>
@@ -136,8 +139,8 @@ Otherwise... what?
 <summary>Hint 3: which drum is it?</summary>
 
 Put a strip of masking tape on each drum, so you can see it turning.
-Then write the drum (top or bottom), its CAN ID, and its direction on
-your Step 1 table.
+Then write down which drum is A (CAN ID 39) and which is B (8), where
+each one is (top or bottom), and which way it spins.
 </details>
 
 ## Step 4: Spin both drums the right way
@@ -408,5 +411,42 @@ robot was pointing, the right drum speed, how each ball would fly.
 Keep your list. In [Part 5](../part5/23_VISION.md), robots use cameras to
 measure where things are, and you'll see why a camera has to be
 **calibrated** before its measurements can be trusted.
+
+## Appendix: find the CAN IDs yourself
+
+Only needed if the [CAN IDs in Step 1](#step-1-the-motors-and-their-can-ids)
+don't work.
+
+These motors use **REV SPARK** controllers, so **Phoenix Tuner X can't
+see them**. Use the **REV Hardware Client** instead.
+
+**Goal:** you know the CAN ID of each motor, and each one is written on
+masking tape.
+
+1. Find the REV Hardware Client on the laptop (Windows key, type "REV").
+   If it's not there, download it
+   [here](https://docs.revrobotics.com/rev-hardware-client).
+
+   ![](../img/rev_hardware_client.png)
+
+1. Plug a USB-C cable from the laptop straight into one **SPARK**, and
+   click **Refresh**.
+
+   ![](../img/rev_hardware_client_working.png)
+
+1. The **CAN Bus** tab should say "Bus OK", and **CAN Data** should
+   show messages flowing.
+
+   ![](../img/can_bus_flowing.png)
+
+1. Write down its CAN ID. To find out which motor this SPARK drives,
+   spin it slowly from the client's run tab and watch.
+
+> 📷 **TODO photo:** `docs/img/demo_bot_spark_usb.jpg`: a USB-C cable
+> plugged into one of the demo bot's SPARKs.
+
+**Checkpoint:** a table of motor → CAN ID, checked with a mentor. Fix
+the table in [Step 1](#step-1-the-motors-and-their-can-ids) if yours
+is different, and tell a mentor, so the next group doesn't get stuck.
 
 Next: [Part 3: Where am I? (localization)](../part3/13_LOCALIZATION.md)
