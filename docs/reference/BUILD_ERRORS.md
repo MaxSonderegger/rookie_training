@@ -176,13 +176,18 @@ error: package edu.wpi.first.wpilibj2.command does not exist
 ```
 
 The first wording comes from VS Code's Java helper, and the second from
-the Gradle build. Either way, `WPILibNewCommands.json` is probably
-missing. If the build ends with `BUILD SUCCESSFUL` and only VS Code
-complains, [reset VS Code's Java](#build-passes-but-vs-code-shows-red)
-instead.
+the Gradle build. To find out which problem you have, run WPILib →
+**Build Robot Code**, and read how it ends:
 
-The error can point at files in `lib`, even when your own code looks
-fine in VS Code. That's because the build compiles `lib` as part of your study, using **your
+* **`BUILD SUCCESSFUL`:** your project is fine, and only VS Code is
+  confused. Check that you
+  [opened the workspace](#opened-the-folder-instead-of-the-workspace),
+  then [reset VS Code's Java](#build-passes-but-vs-code-shows-red).
+* **`BUILD FAILED`:** `WPILibNewCommands.json` is probably missing. Do
+  the check and fix below.
+
+A failed build can point at files in `lib`, even when your own code
+looks fine in VS Code. That's because the build compiles `lib` as part of your study, using **your
 study's** vendordeps. (If `edu.wpi.first.wpilibj` and other
 `edu.wpi.first` packages are missing too, not just `wpilibj2`, check the
 [year in `build.gradle`](#wrong-year-in-buildgradle) instead.)
