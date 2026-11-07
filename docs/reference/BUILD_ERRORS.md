@@ -168,15 +168,21 @@ build output (not just in red underlines).
 **Looks like:** `package com.ctre…` or `com.revrobotics…` does not
 exist; or the build warns **"Duplicate Vendordeps detected"**.
 
-Or, on `main`:
+Or, on `main`, either of these:
 
 ```
+The import edu.wpi.first.wpilibj2 cannot be resolved
 error: package edu.wpi.first.wpilibj2.command does not exist
 ```
 
-That one means `WPILibNewCommands.json` is missing. The error can point
-at files in `lib`, even when your own code looks fine in VS Code. That's
-because the build compiles `lib` as part of your study, using **your
+The first wording comes from VS Code's Java helper, and the second from
+the Gradle build. Either way, `WPILibNewCommands.json` is probably
+missing. If the build ends with `BUILD SUCCESSFUL` and only VS Code
+complains, [reset VS Code's Java](#build-passes-but-vs-code-shows-red)
+instead.
+
+The error can point at files in `lib`, even when your own code looks
+fine in VS Code. That's because the build compiles `lib` as part of your study, using **your
 study's** vendordeps. (If `edu.wpi.first.wpilibj` and other
 `edu.wpi.first` packages are missing too, not just `wpilibj2`, check the
 [year in `build.gradle`](#wrong-year-in-buildgradle) instead.)
