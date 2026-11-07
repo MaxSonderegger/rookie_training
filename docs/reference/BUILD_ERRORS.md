@@ -168,10 +168,24 @@ build output (not just in red underlines).
 **Looks like:** `package com.ctre…` or `com.revrobotics…` does not
 exist; or the build warns **"Duplicate Vendordeps detected"**.
 
+Or, on `main`:
+
+```
+error: package edu.wpi.first.wpilibj2.command does not exist
+```
+
+That one means `WPILibNewCommands.json` is missing. The error can point
+at files in `lib`, even when your own code looks fine in VS Code. That's
+because the build compiles `lib` as part of your study, using **your
+study's** vendordeps. (If `edu.wpi.first.wpilibj` and other
+`edu.wpi.first` packages are missing too, not just `wpilibj2`, check the
+[year in `build.gradle`](#wrong-year-in-buildgradle) instead.)
+
 **Check:** your study's `vendordeps` folder has exactly the same files
 as `lib/vendordeps`, and **nothing else**.
 
-**Fix:** copy in any missing ones from `lib/vendordeps`. Delete any file
+**Fix:** copy in any missing ones from `lib/vendordeps`, then build
+again. Delete any file
 with `copy` in its name (like `WPILibNewCommands copy.json`): that's what
 pasting makes when it doesn't replace.
 
