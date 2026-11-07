@@ -119,6 +119,11 @@ and **nothing else**. If you see a file with `copy` in its name (like
 replacing: delete the `copy` one. Otherwise the build warns
 "Duplicate Vendordeps detected".
 
+Make sure `WPILibNewCommands.json` is there. Without it, the build fails
+with `package edu.wpi.first.wpilibj2.command does not exist`, even if
+your own code looks fine. See the
+[Build errors FAQ](../reference/BUILD_ERRORS.md#vendordeps-missing-or-duplicated).
+
 ## Build again
 
 Build and deploy again. Always check that everything still works before
