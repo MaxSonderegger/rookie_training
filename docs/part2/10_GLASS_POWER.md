@@ -148,7 +148,19 @@ sure it's `DEBUG` (the default) or `TRACE`, not `COMP`.
 1. **Plot → New Plot Window**.
 1. Drag `supply current (A)` and `stator current (A)` from the
    NetworkTables view onto the plot. Add `log/Robot/voltage` too.
+1. Turn on **Auto-Fit**: right-click the numbers along the plot's left
+   edge, then check **Auto-Fit**. Do this for every new plot.
+
+   ![The Y-Axis menu with Auto-Fit checked](../img/glass_plot_autofit.png)
 1. Run the motor at a few speeds with the stick.
+
+> **Why Auto-Fit?** A new plot's up-and-down axis (the **Y axis**) only
+> goes from 0 to 1. Anything outside that range is off the screen, so a
+> 12 V battery line or a **negative** number seems to be missing. (Speed
+> and output go negative when the motor runs backwards.) Auto-Fit keeps
+> resizing the axis so your lines fit, above and below zero.
+>
+> Want to fit it just once? Double-click the plot.
 
 > 📷 **TODO screenshot:** `docs/img/glass_plot_current.png`: supply
 > and stator current while the motor runs.
